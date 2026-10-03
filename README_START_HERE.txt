@@ -1,3 +1,8 @@
-REVLINE V20 — ONE PAGE
-Upload the contents of this folder to the root of the GitHub repository connected to Vercel.
-Keep the same revlineutah.com domain. The site is static and FormSubmit remains the form handler.
+REVLINE FINAL V24
+
+Clean one-page static site.
+- One main index.html with inline CSS and JavaScript.
+- Three.js background is procedural geometry; no background texture/media dependency.
+- Local photos and MP4 files are stored under /media.
+- Request Service posts directly to FormSubmit and redirects to thank-you.html.
+- Upload the contents of this folder to the root of the GitHub repository connected to Vercel.

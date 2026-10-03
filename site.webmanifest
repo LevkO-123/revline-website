@@ -1,9 +1,1 @@
-{
-  "name": "REVLINE Mobile Diagnostics & Repair",
-  "short_name": "REVLINE",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#080b0e",
-  "theme_color": "#080b0e",
-  "icons": []
-}
+{"name":"REVLINE Mobile Diagnostics & Repair","short_name":"REVLINE","start_url":"/","display":"standalone","theme_color":"#07090b","background_color":"#07090b","icons":[{"src":"/revline-r.webp","sizes":"128x128","type":"image/webp"}]}
