@@ -1,30 +1,26 @@
 # REVLINE Mobile Diagnostics & Repair
 
-REVLINE is a mobile automotive diagnostics and repair service serving Utah County and Salt Lake County, with additional Utah locations considered depending on the job and travel distance.
+REVLINE Mobile Diagnostics & Repair is a mobile automotive service serving Utah County and Salt Lake County.
 
 Website: https://revlineutah.com/
 Phone: +1-224-345-8151
 Email: revlineutah@gmail.com
 
-## Core services
-- Mobile vehicle diagnostics
+Core work:
+- Mobile diagnostics and troubleshooting
 - Electrical diagnostics and repair
 - Programming and coding
 - Adaptation and calibration
 - General maintenance and repair
-- Brake service
-- Battery, starter and alternator service
+- Brake, battery, starter and alternator service
 - RV / camper electrical and supported repair
 - ATV / UTV / trailer service
-- Supported lift kits, leveling kits, lighting, suspension and accessory installs
+- Supported lift, leveling, lighting, suspension and accessory installation
 
-## Service area
-Utah County and Salt Lake County are the core service areas. Provo, Orem, Lehi, American Fork, Pleasant Grove, Spanish Fork, Springville, Vineyard, Saratoga Springs, Salt Lake City, Sandy, South Jordan and nearby communities are among the areas commonly referenced by REVLINE.
+Coverage:
+Utah County and Salt Lake County are the core service areas. Additional Utah locations may be considered depending on job and travel distance.
 
-## Contact
-Call or text 224-345-8151 or use the service request form on the website.
-
-## Social profiles
+Public profiles:
 Instagram: https://www.instagram.com/revline_mobile.mechanic/
 Facebook: https://www.facebook.com/share/1DSPme5rXr/?mibextid=wwXIfr
 Google Maps: https://maps.app.goo.gl/m4ToryHhXf3dTJ5r5?g_st=ic

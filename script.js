@@ -3,53 +3,49 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
-  // Mobile navigation
   const menuToggle = $('#menuToggle');
   const mobileMenu = $('#mobileMenu');
   const closeMenu = () => {
     mobileMenu?.classList.remove('open');
     menuToggle?.classList.remove('active');
-    menuToggle?.setAttribute('aria-expanded', 'false');
-    menuToggle?.setAttribute('aria-label', 'Open menu');
+    menuToggle?.setAttribute('aria-expanded','false');
+    menuToggle?.setAttribute('aria-label','Open menu');
   };
   menuToggle?.addEventListener('click', () => {
-    const open = !mobileMenu?.classList.contains('open');
-    mobileMenu?.classList.toggle('open', open);
+    const open = !mobileMenu.classList.contains('open');
+    mobileMenu.classList.toggle('open', open);
     menuToggle.classList.toggle('active', open);
     menuToggle.setAttribute('aria-expanded', String(open));
     menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   });
   $$('#mobileMenu a').forEach(a => a.addEventListener('click', closeMenu));
 
-  // Header state without duplicate scroll listeners.
   const header = $('#siteHeader');
-  let ticking = false;
-  const onScroll = () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      ticking = false;
-      header?.classList.toggle('scrolled', window.scrollY > 20);
-    });
+  let scrollTick = false;
+  const updateHeader = () => {
+    header?.classList.toggle('scrolled', window.scrollY > 30);
+    document.documentElement.style.setProperty('--bg-y', `${Math.max(-32, Math.min(32, -window.scrollY * 0.035))}px`);
   };
-  addEventListener('scroll', onScroll, {passive: true});
-  onScroll();
+  addEventListener('scroll', () => {
+    if (scrollTick) return;
+    scrollTick = true;
+    requestAnimationFrame(() => { scrollTick = false; updateHeader(); });
+  }, {passive:true});
+  updateHeader();
 
-  // Reveal animations.
   const revealEls = $$('.reveal');
   if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver(entries => {
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('in');
-          io.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
-    }, {threshold: 0.05, rootMargin: '0px 0px -20px'});
-    revealEls.forEach(el => io.observe(el));
+    }, {threshold:0.06, rootMargin:'0px 0px -20px'});
+    revealEls.forEach(el => observer.observe(el));
   } else revealEls.forEach(el => el.classList.add('in'));
 
-  // Vehicle data for the Request Service form.
   const MAKE_MODELS = {
     Acura:['ILX','Integra','MDX','RDX','TLX','RLX','NSX','TSX','ZDX'],
     'Alfa Romeo':['Giulia','Stelvio','Tonale','4C'],
@@ -98,98 +94,100 @@
     Hino:['195','258','268','338','L Series','XL Series'],
     Karma:['GS-6','Revero']
   };
-  const MAKES = Object.keys(MAKE_MODELS).sort((a,b) => a.localeCompare(b));
-  const YEARS = Array.from({length:new Date().getFullYear()-1979}, (_,i)=>String(new Date().getFullYear()-i));
+  const MAKES = Object.keys(MAKE_MODELS).sort((a,b)=>a.localeCompare(b));
+  const YEARS = Array.from({length:new Date().getFullYear()-1979},(_,i)=>String(new Date().getFullYear()-i));
   const CITIES = ['American Fork','Bluffdale','Bountiful','Brigham City','Cedar City','Clearfield','Clinton','Cottonwood Heights','Draper','Eagle Mountain','Farmington','Herriman','Kaysville','Layton','Lehi','Lindon','Logan','Mapleton','Midvale','Millcreek','Murray','Nephi','North Salt Lake','Ogden','Orem','Park City','Payson','Pleasant Grove','Pleasant View','Provo','Riverton','Roosevelt','Roy','Salem','Salt Lake City','Sandy','Santaquin','Saratoga Springs','South Jordan','South Ogden','South Salt Lake','Spanish Fork','Springville','St. George','Syracuse','Taylorsville','Tooele','Vernal','Vineyard','Washington','West Jordan','West Valley City','Woods Cross'];
-  const populate = (select, values, placeholder) => {
-    if (!select) return;
-    const current = select.value;
-    select.innerHTML = `<option value="">${placeholder}</option>`;
-    values.forEach(value => {
-      const opt = document.createElement('option');
-      opt.value = value; opt.textContent = value; select.appendChild(opt);
-    });
-    if (values.includes(current)) select.value = current;
-  };
-  populate($('#requestYear'), YEARS, 'Select year');
-  populate($('#otherYear'), YEARS, 'Select year');
-  populate($('#requestMake'), MAKES, 'Select make');
-  populate($('#requestCity'), CITIES, 'Select Utah city / town');
-  const requestMake = $('#requestMake');
-  const requestModel = $('#requestModel');
-  const syncModels = () => {
-    const make = requestMake?.value;
-    populate(requestModel, make && MAKE_MODELS[make] ? MAKE_MODELS[make] : [], make ? 'Select model' : 'Select make first');
-    if (requestModel) requestModel.disabled = !make;
-  };
-  requestMake?.addEventListener('change', syncModels);
 
-  // Service-card -> preselect in request form.
-  const serviceSelect = $('#serviceSelect');
-  $$('.service-card[data-service], .service-link').forEach(el => {
-    el.addEventListener('click', () => {
-      const card = el.closest('[data-service]');
-      const value = card?.dataset.service;
-      if (value && serviceSelect) {
-        const option = [...serviceSelect.options].find(o => o.textContent.toLowerCase().includes(value.toLowerCase()));
-        if (option) serviceSelect.value = option.value;
+  const fillSelect = (select, values, placeholder, preserve=false) => {
+    if (!select) return;
+    const current = preserve ? select.value : '';
+    select.innerHTML = `<option value="">${placeholder}</option>`;
+    values.forEach(v => {
+      const opt = document.createElement('option');
+      opt.value=v; opt.textContent=v; select.appendChild(opt);
+    });
+    if (preserve && values.includes(current)) select.value=current;
+  };
+  fillSelect($('#requestYear'), YEARS, 'Select year');
+  fillSelect($('#otherYear'), YEARS, 'Select year');
+  fillSelect($('#requestMake'), MAKES, 'Select make');
+  fillSelect($('#requestCity'), CITIES, 'Select Utah city / town');
+
+  const requestMake=$('#requestMake'), requestModel=$('#requestModel');
+  const syncModels=()=>{
+    const make=requestMake?.value;
+    fillSelect(requestModel, make && MAKE_MODELS[make] ? MAKE_MODELS[make] : [], make ? 'Select model' : 'Select make first');
+    if(requestModel) requestModel.disabled=!make;
+  };
+  requestMake?.addEventListener('change',syncModels);
+
+  const serviceSelect=$('#serviceSelect');
+  $$('[data-service-link]').forEach(link=>{
+    link.addEventListener('click',()=>{
+      const v=link.dataset.serviceLink;
+      if(serviceSelect){
+        const o=[...serviceSelect.options].find(opt=>opt.textContent===v);
+        if(o) serviceSelect.value=o.value;
       }
     });
   });
 
-  // Vehicle category switch.
-  const reqAuto = $('.request-auto');
-  const reqOther = $('.request-other');
-  const category = $('#requestCategory');
-  const autoRequired = [$('#requestYear'), $('#requestMake'), $('#requestModel')];
-  const otherRequired = [$('#otherType')];
-  const setVehicleMode = mode => {
-    const auto = mode === 'auto';
-    reqAuto?.classList.toggle('hidden', !auto);
-    reqOther?.classList.toggle('hidden', auto);
-    if (category) category.value = auto ? 'Car / Truck' : 'Other';
-    autoRequired.forEach(el => { if (el) el.disabled = !auto; });
-    otherRequired.forEach(el => { if (el) el.disabled = auto; });
-    $$('.vehicle-switch-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.type === mode));
+  const autoFields=$('.auto-fields'), otherFields=$('.other-fields'), category=$('#requestCategory');
+  const autoReq=[$('#requestYear'),$('#requestMake'),$('#requestModel')];
+  const otherReq=[$('#otherType')];
+  const setVehicleMode=mode=>{
+    const auto=mode==='auto';
+    autoFields?.classList.toggle('hidden',!auto);
+    otherFields?.classList.toggle('hidden',auto);
+    if(category) category.value=auto?'Car / Truck':'Other';
+    autoReq.forEach(el=>{if(el){el.disabled=!auto;el.required=auto;}});
+    otherReq.forEach(el=>{if(el){el.disabled=auto;el.required=!auto;}});
+    $$('.switch-btn').forEach(btn=>btn.classList.toggle('active',btn.dataset.vehicle===mode));
   };
-  $$('.vehicle-switch-btn').forEach(btn => btn.addEventListener('click', () => setVehicleMode(btn.dataset.type)));
+  $$('.switch-btn').forEach(btn=>btn.addEventListener('click',()=>setVehicleMode(btn.dataset.vehicle)));
   setVehicleMode('auto');
 
-  // FormSubmit: leave the endpoint and hidden workflow intact; add UX validation only.
-  const form = $('#requestForm');
-  const message = $('#requestMessage');
-  const fileInput = form?.querySelector('input[type="file"]');
-  form?.addEventListener('submit', e => {
-    if (fileInput) {
-      const total = [...fileInput.files].reduce((sum,f) => sum + f.size, 0);
-      if (total > 10 * 1024 * 1024) {
+  // Form UX: native FormSubmit contract is left intact.
+  const form=$('#requestForm'), help=$('#formHelp'), msg=$('#formMessage'), fileInput=form?.querySelector('input[type="file"]');
+  const emailField=form?.querySelector('input[name="email"]');
+  const replyTo=form?.querySelector('input[name="_replyto"]');
+  emailField?.addEventListener('input',()=>{ if(replyTo) replyTo.value=emailField.value.trim(); });
+  form?.addEventListener('submit',e=>{
+    if(fileInput?.files?.length){
+      const total=[...fileInput.files].reduce((s,f)=>s+f.size,0);
+      if(total>10*1024*1024){
         e.preventDefault();
-        if (message) { message.className = 'form-message error'; message.textContent = 'Please keep total photos/video under 10 MB.'; }
+        if(msg){msg.className='form-message error';msg.textContent='Please keep the attachment under 10 MB.';}
         return;
       }
     }
-    const btn = form.querySelector('button[type="submit"]');
-    if (btn) { btn.disabled = true; btn.innerHTML = 'Sending request…'; }
+    const btn=form.querySelector('button[type="submit"]');
+    if(btn){btn.disabled=true;btn.innerHTML='Sending request… <b>→</b>';}
+    if(help) help.textContent='Sending securely to REVLINE…';
   });
 
-  // Lightbox.
-  const lightbox = $('#lightbox'), lbImg = $('#lightboxImage'), lbCap = $('#lightboxCaption');
-  const openLightbox = (src, caption) => {
-    if (!lightbox || !lbImg) return;
-    lbImg.src = src; lbImg.alt = caption || 'REVLINE work';
-    if (lbCap) lbCap.textContent = caption || '';
-    lightbox.classList.add('open'); lightbox.setAttribute('aria-hidden','false');
-    document.body.classList.add('locked');
-  };
-  const closeLightbox = () => {
-    lightbox?.classList.remove('open'); lightbox?.setAttribute('aria-hidden','true');
-    if (lbImg) lbImg.src = '';
+  // Lightbox
+  const lightbox=$('#lightbox'), lbImg=$('#lightboxImage'), lbCap=$('#lightboxCaption');
+  const closeLightbox=()=>{
+    lightbox?.classList.remove('open');
+    lightbox?.setAttribute('aria-hidden','true');
+    if(lbImg) lbImg.src='';
     document.body.classList.remove('locked');
   };
-  $$('.work-item[data-lightbox]').forEach(item => item.addEventListener('click', () => openLightbox(item.dataset.lightbox, item.dataset.caption)));
-  $('#lightboxClose')?.addEventListener('click', closeLightbox);
-  $('#lightboxBg')?.addEventListener('click', closeLightbox);
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') { closeLightbox(); closeMenu(); }
+  $$('[data-full]').forEach(item=>{
+    item.addEventListener('click',()=>{
+      if(!lightbox||!lbImg) return;
+      lbImg.src=item.dataset.full;
+      lbImg.alt=item.dataset.caption||'REVLINE work';
+      if(lbCap) lbCap.textContent=item.dataset.caption||'';
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden','false');
+      document.body.classList.add('locked');
+    });
+  });
+  $('#lightboxClose')?.addEventListener('click',closeLightbox);
+  $('#lightboxBg')?.addEventListener('click',closeLightbox);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){closeLightbox();closeMenu();}
   });
 })();

@@ -1,13 +1,3 @@
-REVLINE V19 — SIMPLIFIED ONE-PAGE BUILD
-
-Deploy the contents of this folder as the project root.
-
-Main page: /
-Request form: #request
-Thank-you: /thank-you
-Sitemap: /sitemap.xml
-Robots: /robots.txt
-AI-readable business facts: /llms.txt
-
-Important: the Request Service FormSubmit endpoint and hidden workflow are kept intact.
-Three.js is loaded dynamically from jsDelivr and the site has a CSS fallback if WebGL/CDN loading is unavailable.
+REVLINE V20 — ONE PAGE
+Upload the contents of this folder to the root of the GitHub repository connected to Vercel.
+Keep the same revlineutah.com domain. The site is static and FormSubmit remains the form handler.
