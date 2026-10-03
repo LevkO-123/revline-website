@@ -1,0 +1,18 @@
+REVLINE V19 — FINAL SIMPLIFICATION + 3D BACKGROUND
+
+- Simplified the public site to one primary page.
+- Removed visible Smart Quote, Story + Journal, and Services navigation from the header.
+- Kept Request Service and FormSubmit workflow intact.
+- Reorganized services into eight focused visual blocks:
+  Diagnostics; Programming & Coding; Adaptation & Calibration; Electrical; General Maintenance & Repair; RV / Camper; ATV / UTV / Trailer; Accessories & Upgrades.
+- Replaced the old CSS hex background with a fixed Three.js instanced 3D honeycomb background.
+- Added smooth scroll parallax, low-amplitude breathing motion, metallic materials, white directional lighting and subtle red accent lighting.
+- Added WebGL fallback and prefers-reduced-motion handling.
+- Added user media: truck, Autel diagnostics, RV electrical/battery systems, Polaris UTV, and a service-detail video.
+- Added real recognizable inline SVG icons for Instagram, Facebook and Google Maps.
+- Kept Google Reviews as a live-profile block without fabricating review text.
+- Added FAQ and entity-focused business facts for search/AI retrieval.
+- Added llms.txt as an auxiliary machine-readable business profile. It is not relied on as a replacement for normal SEO.
+- Kept robots open to OAI-SearchBot, GPTBot, Googlebot and Bingbot.
+- Added legacy 301 redirects for removed Story/Smart Quote/service-area/service routes so old links do not die.
+- Reduced media sizes and changed non-critical video loading to preload=none.

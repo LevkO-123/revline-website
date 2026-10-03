@@ -1,0 +1,21 @@
+REVLINE V19 QA HANDOFF
+
+Static/automated checks to run before deployment:
+- HTML parse / tag balance
+- Duplicate ID scan
+- Local href/src reference scan
+- JSON-LD parse validation
+- robots.txt content check
+- sitemap XML parse validation
+- JS syntax validation
+- Vercel JSON parse validation
+- Form action and FormSubmit hidden workflow presence
+- Redirect rule sanity check
+- Media existence checks
+
+Known environment limitation:
+- Real iPhone Safari and physical desktop Chrome cannot be fully emulated inside this sandbox. Verify the deployed page once on an actual phone and one desktop browser.
+
+Runtime safety:
+- Three.js loads dynamically. If the CDN or WebGL is unavailable, the main page remains usable with a dark CSS background.
+- Reduced-motion users receive the static fallback and no Three.js animation.

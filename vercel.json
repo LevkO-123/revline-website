@@ -1,0 +1,44 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {"key":"X-Content-Type-Options","value":"nosniff"},
+        {"key":"Referrer-Policy","value":"strict-origin-when-cross-origin"},
+        {"key":"X-Frame-Options","value":"SAMEORIGIN"},
+        {"key":"Permissions-Policy","value":"camera=(), microphone=(), geolocation=()"},
+        {"key":"X-DNS-Prefetch-Control","value":"on"},
+        {"key":"Content-Security-Policy","value":"default-src 'self' https: data: blob:; img-src 'self' https: data: blob:; media-src 'self' https: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; connect-src 'self' https://formsubmit.co https://cdn.jsdelivr.net; frame-ancestors 'self'; base-uri 'self'; form-action https://formsubmit.co 'self';"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {"source":"/story","destination":"/","permanent":true},
+    {"source":"/story/","destination":"/","permanent":true},
+    {"source":"/story.html","destination":"/","permanent":true},
+    {"source":"/services","destination":"/#services","permanent":true},
+    {"source":"/services/","destination":"/#services","permanent":true},
+    {"source":"/services/:path*","destination":"/#services","permanent":true},
+    {"source":"/smart-quote","destination":"/#request","permanent":true},
+    {"source":"/smart-quote/","destination":"/#request","permanent":true},
+    {"source":"/instant-prices","destination":"/#request","permanent":true},
+    {"source":"/instant-prices/","destination":"/#request","permanent":true},
+    {"source":"/service-area","destination":"/#services","permanent":true},
+    {"source":"/service-area/","destination":"/#services","permanent":true},
+    {"source":"/mobile-mechanic","destination":"/#home","permanent":true},
+    {"source":"/mobile-mechanic/","destination":"/#home","permanent":true},
+    {"source":"/mobile-mechanic-provo","destination":"/#home","permanent":true},
+    {"source":"/mobile-mechanic-provo/","destination":"/#home","permanent":true},
+    {"source":"/mobile-mechanic-orem","destination":"/#home","permanent":true},
+    {"source":"/mobile-mechanic-orem/","destination":"/#home","permanent":true},
+    {"source":"/mobile-mechanic-lehi","destination":"/#home","permanent":true},
+    {"source":"/mobile-mechanic-lehi/","destination":"/#home","permanent":true},
+    {"source":"/mobile-mechanic-american-fork","destination":"/#home","permanent":true},
+    {"source":"/mobile-mechanic-american-fork/","destination":"/#home","permanent":true},
+    {"source":"/mobile-mechanic-salt-lake-county","destination":"/#home","permanent":true},
+    {"source":"/mobile-mechanic-salt-lake-county/","destination":"/#home","permanent":true}
+  ]
+}
