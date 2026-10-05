@@ -2,336 +2,653 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0a0d10">
-<meta name="description" content="REVLINE Mobile Diagnostics & Repair — advanced diagnostics, electrical repair, programming, coding, adaptations, general repair, RV, UTV, trailer and lift-kit services. Mobile service across Utah County and surrounding areas.">
+<meta name="description" content="REVLINE Mobile Diagnostics & Repair — mobile diagnostics, electrical repair, programming, coding, adaptations, general repair, RV, UTV, trailer and accessory installation across Utah County and surrounding areas.">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <link rel="canonical" href="https://revlineutah.com/">
 <link rel="icon" href="revline-r.webp" type="image/webp">
 <title>REVLINE Mobile Diagnostics & Repair | Utah</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" onerror="window.__THREE_FAILED__=true"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
 <style>
-:root{--bg:#080b0e;--panel:rgba(18,22,26,.76);--line:rgba(255,255,255,.16);--text:#f7f8f9;--muted:#b7bec4;--red:#e11d2e;--ease:cubic-bezier(.2,.78,.2,1)}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:96px}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}img,video{display:block;max-width:100%}
-#scene{position:fixed;inset:0;z-index:-10;overflow:hidden;background:#0a0d10}#scene canvas{position:absolute;inset:0;width:100%!important;height:100%!important;display:block}
-.css-fallback{position:absolute;inset:-12%;background:radial-gradient(circle at 52% 32%,rgba(120,175,190,.18),transparent 28%),linear-gradient(180deg,#141b20 0%,#090c0f 100%)}.css-fallback:before{content:"";position:absolute;inset:0;background-image:linear-gradient(30deg,rgba(255,255,255,.06) 12%,transparent 12.5%,transparent 87%,rgba(255,255,255,.06) 87.5%),linear-gradient(150deg,rgba(255,255,255,.06) 12%,transparent 12.5%,transparent 87%,rgba(255,255,255,.06) 87.5%);background-size:92px 160px;opacity:.45;transform:perspective(700px) rotateX(60deg) translateY(23%) scale(1.15)}.scene-wash{position:absolute;inset:0;background:radial-gradient(circle at 50% 26%,rgba(222,241,245,.09),transparent 34%),linear-gradient(180deg,rgba(4,6,8,.08),rgba(4,6,8,.32) 48%,rgba(4,6,8,.74) 86%,rgba(4,6,8,.92))}
-header{position:fixed;top:0;left:0;right:0;z-index:50}.nav{width:min(1220px,calc(100% - 28px));margin:12px auto 0;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:9px 11px 9px 14px;background:rgba(18,22,26,.72);backdrop-filter:blur(22px) saturate(130%);border:1px solid var(--line);border-radius:19px;box-shadow:0 18px 55px rgba(0,0,0,.23)}.brand{display:flex;align-items:center;gap:10px}.brand img{width:44px;height:44px;object-fit:contain}.brand strong{font-size:1.52rem;font-weight:950;font-style:italic;letter-spacing:-.06em}.brand strong span{color:var(--red)}.brand small{display:block;color:#aab2b8;font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;margin-top:2px}.navlinks{display:flex;align-items:center;gap:21px}.navlinks a{font-size:.69rem;font-weight:900;letter-spacing:.11em;text-transform:uppercase;color:#eef2f3;opacity:.9}.navlinks a:hover{opacity:1}.navcta{padding:11px 15px;border-radius:12px;background:linear-gradient(180deg,#ef2638,#c51022);box-shadow:0 8px 25px rgba(225,29,46,.22)}.phone{font-size:.76rem;font-weight:900}.menu{display:none;width:46px;height:46px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#fff;align-items:center;justify-content:center;flex-direction:column;gap:5px}.menu span{width:20px;height:2px;background:#fff}.mobile{display:none}
-main{position:relative;z-index:1}.container{width:min(1220px,calc(100% - 28px));margin:0 auto}.section{padding:112px 0}.glass{background:var(--panel);border:1px solid var(--line);box-shadow:0 26px 80px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(18px) saturate(120%)}
-.hero{min-height:100svh;display:grid;align-items:center;padding:126px 0 66px}.hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:50px;align-items:center}.kicker{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--line);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:#e2e7e9;font-weight:900}.kicker i{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 18px rgba(225,29,46,.85)}
-.hero h1{margin:20px 0 0;font-size:clamp(4rem,8.3vw,7.8rem);line-height:.82;letter-spacing:-.06em;text-transform:uppercase;font-style:italic;font-weight:950}.hero h1 em{color:var(--red);font-style:normal}.hero-copy{margin:24px 0 0;max-width:660px;color:#d7dcdf;font-size:1.12rem;line-height:1.65}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:51px;padding:0 20px;border-radius:14px;border:1px solid var(--line);font-size:.76rem;font-weight:950;letter-spacing:.07em;text-transform:uppercase;transition:transform .2s var(--ease),box-shadow .2s,background .2s}.btn:hover{transform:translateY(-2px)}.btn-primary{background:linear-gradient(180deg,#ef2638,#c51022);box-shadow:0 12px 30px rgba(225,29,46,.24)}.btn-glass{background:rgba(255,255,255,.07)}.trust{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}.trust span{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);font-size:.67rem;font-weight:850;color:#d5dadd}
-.hero-card{border-radius:28px;overflow:hidden;position:relative}.hero-card img{width:100%;height:600px;object-fit:cover;filter:saturate(.88) contrast(1.07)}.hero-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(2,4,5,.82))}.hero-card-copy{position:absolute;left:21px;right:21px;bottom:21px;z-index:2;display:flex;align-items:end;justify-content:space-between;gap:10px}.hero-card-copy strong{display:block;font-size:1rem}.hero-card-copy span{display:block;color:#c8d0d4;font-size:.75rem;margin-top:3px}
-.section-title{display:grid;grid-template-columns:1fr .9fr;gap:40px;align-items:end;margin-bottom:34px}.eyebrow{font-size:.69rem;letter-spacing:.17em;text-transform:uppercase;color:#cbd3d7;font-weight:900}.section-title h2{margin-top:11px;font-size:clamp(3rem,5vw,5.35rem);line-height:.87;letter-spacing:-.055em;text-transform:uppercase;font-style:italic;font-weight:950}.section-title h2 span{color:var(--red)}.section-title p{margin:0 0 1px auto;max-width:540px;color:#c2c9cd;line-height:1.7}
-.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.service{min-height:228px;padding:24px;border-radius:22px;transition:transform .25s var(--ease),border-color .25s}.service:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.28)}.icon{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);margin-bottom:18px}.icon svg{width:24px;height:24px}.service h3{font-size:1.06rem;margin:0 0 10px;letter-spacing:.01em}.service p{margin:0;color:#c0c8cc;line-height:1.55;font-size:.88rem}.service b{display:inline-block;margin-top:17px;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:#fff}
-.media-grid{display:grid;grid-template-columns:1.26fr .74fr;gap:15px}.work-large,.work-stack{display:grid;gap:15px}.work-large .media{min-height:520px}.work-stack .media{min-height:250px}.media{position:relative;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.13);background:#11171b;padding:0;text-align:left}.media img,.media video{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease);filter:saturate(.92) contrast(1.04)}.media:hover img,.media:hover video{transform:scale(1.035)}.media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 54%,rgba(0,0,0,.72));pointer-events:none}.media-label{position:absolute;left:18px;right:18px;bottom:15px;z-index:2;display:flex;justify-content:space-between;align-items:end;gap:14px}.media-label strong{font-size:.93rem}.media-label span{font-size:.67rem;color:#d1d8db;text-transform:uppercase;letter-spacing:.12em}
-.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:15px}.panel{padding:28px;border-radius:24px}.panel h3{font-size:clamp(2rem,3.6vw,3.4rem);line-height:.92;letter-spacing:-.05em;font-style:italic;text-transform:uppercase;margin-top:12px}.panel p{margin-top:13px;color:#c3cbd0;line-height:1.7}.list{display:grid;gap:11px;margin:20px 0 0;padding:0}.list li{list-style:none;display:flex;gap:11px;color:#e7ecee;line-height:1.5}.list li:before{content:"";width:8px;height:8px;margin-top:7px;border-radius:50%;background:var(--red);box-shadow:0 0 14px rgba(225,29,46,.6);flex:0 0 auto}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.chip{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-size:.69rem;color:#d9dfe2}
-.review-card{padding:31px;border-radius:26px}.stars{font-size:1.1rem;letter-spacing:.18em;color:#ffc94b}.review-card h3{font-size:clamp(2rem,4vw,4rem);margin-top:9px;font-style:italic;text-transform:uppercase;letter-spacing:-.05em}.review-card p{max-width:760px;color:#c5cdd0;line-height:1.7;margin:11px 0 21px}
-.coverage{display:grid;grid-template-columns:1fr 1fr;gap:15px}.map-wrap{min-height:480px;border-radius:24px;overflow:hidden}.map-wrap iframe{width:100%;height:100%;min-height:480px;border:0;filter:grayscale(.82) brightness(.74) contrast(1.1)}
-.form-card{padding:29px;border-radius:26px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.field{display:grid;gap:8px}.field.full{grid-column:1/-1}.field label{font-size:.68rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#cbd2d6}.field input,.field select,.field textarea{width:100%;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.065);color:#fff;border-radius:14px;min-height:50px;padding:0 14px;outline:0}.field textarea{padding:14px;min-height:136px;resize:vertical}.field input::placeholder,.field textarea::placeholder{color:#9ca5aa}.field option{color:#111;background:#fff}.form-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;margin-top:18px}.form-note{font-size:.71rem;color:#abb4b8;line-height:1.5;max-width:700px}
-.socials{display:flex;gap:9px;flex-wrap:wrap}.social{width:45px;height:45px;border-radius:14px;border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;background:rgba(255,255,255,.06);transition:.2s}.social:hover{transform:translateY(-2px);background:rgba(255,255,255,.1)}.social svg{width:21px;height:21px}.footer{padding:38px 0 76px}.footer-grid{display:grid;grid-template-columns:1.15fr .85fr .8fr;gap:28px}.footer strong{font-size:1.45rem;font-style:italic}.footer strong span{color:var(--red)}.footer p,.footer a{color:#aeb7bb;font-size:.84rem;line-height:1.7}.footer-title{font-size:.69rem;letter-spacing:.15em;text-transform:uppercase;font-weight:900;color:#edf1f2;margin-bottom:9px}.contact-line{display:flex;gap:9px;margin:6px 0}.floating{position:fixed;right:16px;bottom:16px;z-index:45;display:flex;gap:8px}.float-btn{width:50px;height:50px;border-radius:17px;display:grid;place-items:center;background:rgba(18,22,26,.84);border:1px solid rgba(255,255,255,.17);backdrop-filter:blur(16px);box-shadow:0 14px 40px rgba(0,0,0,.27)}.float-btn.red{background:linear-gradient(180deg,#ef2638,#c51022)}.float-btn svg{width:20px;height:20px}.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}.reveal.in{opacity:1;transform:none}.lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.86);backdrop-filter:blur(20px);display:none;align-items:center;justify-content:center;padding:18px}.lightbox.open{display:flex}.lightbox img{max-width:min(1200px,94vw);max-height:88vh;border-radius:20px;border:1px solid rgba(255,255,255,.14)}.lightbox button{position:absolute;top:18px;right:18px;width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.16);font-size:1.5rem}
-@media(max-width:1060px){.navlinks{display:none}.phone{display:none}.menu{display:flex}.mobile{display:none;position:absolute;left:14px;right:14px;top:77px;padding:10px;border-radius:18px;background:rgba(12,16,19,.98);border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.36)}.mobile.open{display:block}.mobile a{display:block;padding:14px;border-radius:11px;font-size:.73rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.hero-grid{grid-template-columns:1fr}.hero-card img{height:530px}.services-grid{grid-template-columns:repeat(2,1fr)}.section-title{grid-template-columns:1fr}.section-title p{margin:0}.footer-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:650px){.container{width:calc(100% - 22px)}.nav{width:calc(100% - 20px);margin-top:9px}.brand img{width:40px;height:40px}.brand strong{font-size:1.33rem}.hero{padding-top:112px}.hero h1{font-size:clamp(3.35rem,16vw,5.3rem)}.hero-copy{font-size:.98rem}.hero-card img{height:360px}.section{padding:84px 0}.services-grid{grid-template-columns:1fr}.media-grid,.coverage,.split{grid-template-columns:1fr}.work-large .media{min-height:350px}.work-stack .media{min-height:225px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.footer-grid{grid-template-columns:1fr}.floating{right:11px;bottom:11px}.float-btn{width:47px;height:47px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none}.btn,.service,.media,.social{transition:none!important}}
+:root{
+  --bg:#0b0e11;
+  --bg2:#11161a;
+  --text:#f5f7f8;
+  --muted:#c2c9cd;
+  --muted2:#98a1a7;
+  --red:#ef2838;
+  --cyan:#8feaf5;
+  --line:rgba(255,255,255,.16);
+  --glass:rgba(19,24,29,.68);
+  --glass2:rgba(255,255,255,.06);
+  --shadow:0 30px 90px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.08);
+  --ease:cubic-bezier(.18,.78,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{margin:0;background:transparent;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}
+body:before{
+  content:"";position:fixed;inset:0;z-index:-30;
+  background:
+    radial-gradient(circle at 50% 24%,rgba(110,224,236,.10),transparent 32%),
+    linear-gradient(180deg,rgba(6,8,10,.06),rgba(5,7,9,.38) 55%,rgba(5,7,9,.82) 100%),
+    url("media/hex-background.png") center/cover fixed no-repeat;
+}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+img,video{display:block;max-width:100%}
+.skip{position:fixed;left:12px;top:8px;z-index:9999;transform:translateY(-180%);padding:10px 14px;border-radius:12px;background:#fff;color:#111;font-weight:800}
+.skip:focus{transform:translateY(0)}
+#scene{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:transparent}
+#scene canvas{width:100%!important;height:100%!important;display:block}
+#scene .scene-fallback{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 50% 30%,rgba(80,214,232,.16),transparent 28%),
+    linear-gradient(180deg,rgba(4,7,9,.06),rgba(4,7,9,.32) 55%,rgba(4,7,9,.78) 100%);
+  opacity:.96;transition:opacity .8s ease
+}
+header{position:fixed;top:0;left:0;right:0;z-index:50}
+.container{width:min(1240px,calc(100% - 28px));margin:0 auto}
+.nav{
+  width:min(1240px,calc(100% - 28px));margin:12px auto 0;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:10px 12px 10px 14px;
+  background:rgba(19,23,28,.72);backdrop-filter:blur(22px) saturate(150%);
+  border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)
+}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand img{width:44px;height:44px;object-fit:contain}
+.brand strong{font-size:1.55rem;font-weight:950;font-style:italic;letter-spacing:-.055em}
+.brand strong span{color:var(--red)}
+.brand small{display:block;color:#b7c0c5;font-size:.54rem;letter-spacing:.15em;text-transform:uppercase;margin-top:2px}
+.navlinks{display:flex;align-items:center;gap:20px}
+.navlinks a{font-size:.71rem;font-weight:900;letter-spacing:.11em;text-transform:uppercase;color:#eef2f3;opacity:.92}
+.navlinks a:hover{color:#fff}
+.navcta{padding:11px 15px;border-radius:14px;background:linear-gradient(180deg,#f63847,#cc1124);box-shadow:0 10px 28px rgba(239,40,56,.26);font-size:.72rem;font-weight:950;letter-spacing:.08em;text-transform:uppercase}
+.phone{font-size:.77rem;font-weight:900;white-space:nowrap}
+.menu{display:none;width:46px;height:46px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.07);color:#fff;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.menu span{width:21px;height:2px;background:#fff;border-radius:999px}
+.mobile{display:none}
+main,footer{position:relative;z-index:2}
+.section{padding:112px 0}
+.glass{
+  background:linear-gradient(180deg,rgba(28,34,40,.72),rgba(15,19,24,.64));
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(16px) saturate(135%);
+}
+.hero{min-height:100svh;display:grid;align-items:center;padding:130px 0 70px}
+.hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:46px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#e8edef;font-weight:950}
+.kicker i{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 20px rgba(239,40,56,.85)}
+.hero h1{margin:20px 0 0;max-width:830px;font-size:clamp(3.4rem,7.2vw,6.7rem);line-height:.88;letter-spacing:-.06em;text-transform:uppercase;font-style:italic;font-weight:950}
+.hero h1 em{color:var(--red);font-style:normal}
+.hero-copy{margin:24px 0 0;max-width:700px;color:#dce2e5;font-size:1.13rem;line-height:1.68}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 20px;border-radius:15px;border:1px solid rgba(255,255,255,.16);font-size:.75rem;font-weight:950;letter-spacing:.07em;text-transform:uppercase;transition:transform .2s var(--ease),box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(180deg,#f63a49,#cf1225);box-shadow:0 14px 34px rgba(239,40,56,.24)}
+.btn-glass{background:rgba(255,255,255,.08)}
+.trust{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}
+.trust span{padding:8px 11px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);font-size:.67rem;font-weight:850;color:#d6dde0}
+.hero-card{border-radius:30px;overflow:hidden;position:relative;min-height:610px}
+.hero-card img{width:100%;height:610px;object-fit:cover;filter:saturate(.9) contrast(1.08)}
+.hero-card video{width:100%;height:610px;object-fit:cover;filter:saturate(.9) contrast(1.08)}.hero-card .hero-media-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.08)}.hero-card .hero-media-video{position:absolute;inset:0;z-index:1;background:transparent}
+.hero-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 40%,rgba(2,4,5,.84) 100%)}
+.hero-card-copy{position:absolute;left:22px;right:22px;bottom:22px;z-index:2;display:flex;align-items:end;justify-content:space-between;gap:10px}
+.hero-card-copy strong{display:block;font-size:1rem}
+.hero-card-copy span{display:block;color:#cbd3d6;font-size:.75rem;margin-top:3px}
+.section-title{display:grid;grid-template-columns:1fr .9fr;gap:38px;align-items:end;margin-bottom:34px}
+.eyebrow{font-size:.68rem;letter-spacing:.17em;text-transform:uppercase;color:#d7dde0;font-weight:900}
+.section-title h2{margin-top:11px;font-size:clamp(2.7rem,5vw,5rem);line-height:.88;letter-spacing:-.055em;text-transform:uppercase;font-style:italic;font-weight:950}
+.section-title h2 span{color:var(--red)}
+.section-title p{margin:0 0 2px auto;max-width:560px;color:#ccd3d6;line-height:1.72}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.service{min-height:245px;padding:24px;border-radius:24px;transition:transform .25s var(--ease),border-color .25s,background .25s}
+.service:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.28);background:linear-gradient(180deg,rgba(34,41,47,.78),rgba(15,19,24,.7))}
+.icon{width:50px;height:50px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.14);margin-bottom:18px}
+.icon svg{width:25px;height:25px}
+.service h3{font-size:1.08rem;margin:0 0 10px;letter-spacing:.01em}
+.service p{margin:0;color:#c8d0d4;line-height:1.58;font-size:.9rem}
+.service b{display:inline-block;margin-top:18px;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+.media-feature{display:grid;grid-template-columns:.95fr 1.05fr;gap:15px;align-items:stretch}
+.media-big{position:relative;min-height:560px;border-radius:28px;overflow:hidden}
+.media-big img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.06)}
+.media-caption{position:absolute;left:22px;right:22px;bottom:20px;z-index:2}
+.media-caption strong{font-size:1.4rem}
+.media-caption p{margin:6px 0 0;max-width:530px;color:#d1d7da;line-height:1.55}
+.media-stack{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.media-tile{position:relative;min-height:272px;border-radius:24px;overflow:hidden}
+.media-tile img,.media-tile video{width:100%;height:100%;object-fit:cover;filter:saturate(.93) contrast(1.04)}
+.media-tile:after,.media-big:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(0,0,0,.74));pointer-events:none}
+.media-label{position:absolute;left:17px;right:17px;bottom:15px;z-index:2}
+.media-label strong{display:block;font-size:.9rem}
+.media-label span{display:block;font-size:.62rem;color:#d0d6d9;text-transform:uppercase;letter-spacing:.13em;margin-top:3px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.panel{padding:30px;border-radius:26px}
+.panel h3{font-size:clamp(2rem,3.8vw,3.8rem);line-height:.92;letter-spacing:-.05em;font-style:italic;text-transform:uppercase;margin-top:12px}
+.panel p{margin-top:13px;color:#c8d0d4;line-height:1.7}
+.list{display:grid;gap:11px;margin:20px 0 0;padding:0}
+.list li{list-style:none;display:flex;gap:11px;color:#e9edef;line-height:1.52}
+.list li:before{content:"";width:8px;height:8px;margin-top:7px;border-radius:50%;background:var(--red);box-shadow:0 0 15px rgba(239,40,56,.62);flex:0 0 auto}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-size:.67rem;color:#dfe5e7}
+.review-card{padding:31px;border-radius:26px}
+.stars{font-size:1.05rem;letter-spacing:.18em;color:#ffd365}
+.review-card h3{font-size:clamp(2rem,4vw,4.1rem);margin-top:9px;font-style:italic;text-transform:uppercase;letter-spacing:-.05em}
+.review-card p{max-width:760px;color:#c6ced2;line-height:1.7;margin:11px 0 21px}
+.coverage{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.map-wrap{min-height:480px;border-radius:24px;overflow:hidden}
+.map-wrap iframe{width:100%;height:100%;min-height:480px;border:0;filter:grayscale(.7) brightness(.72) contrast(1.1)}
+.form-card{padding:30px;border-radius:26px}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.field{display:grid;gap:8px}
+.field.full{grid-column:1/-1}
+.field label{font-size:.68rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#d8dee1}
+.field input,.field select,.field textarea{width:100%;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);color:#fff;border-radius:15px;padding:13px 14px;outline:none}
+.field input::placeholder,.field textarea::placeholder{color:#8e999f}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:rgba(143,234,245,.5);box-shadow:0 0 0 3px rgba(143,234,245,.08)}
+.field select option{color:#111;background:#fff}
+.mini{display:none}
+.manual{display:none}
+footer{padding:45px 0 70px}
+.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px}
+.footer-card{padding:25px;border-radius:24px}
+.footer-links{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
+.social{width:42px;height:42px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.065);display:grid;place-items:center}
+.social svg{width:20px;height:20px}
+.bottom{margin-top:22px;color:#9da7ac;font-size:.72rem;text-align:center}
+.fab{position:fixed;right:18px;bottom:18px;z-index:40;display:flex;gap:10px}
+.fab a{width:52px;height:52px;border-radius:18px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.16);background:rgba(20,25,29,.72);backdrop-filter:blur(15px);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.fab a:last-child{background:linear-gradient(180deg,#f63a49,#cc1226)}
+.notice{display:none;padding:13px 15px;border-radius:15px;background:rgba(77,220,164,.12);border:1px solid rgba(77,220,164,.28);color:#d8fff0;margin-top:14px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:980px){
+  .navlinks,.nav> .phone,.navcta{display:none}
+  .menu{display:flex}
+  .mobile{position:absolute;left:14px;right:14px;top:64px;padding:12px;display:none;flex-direction:column;gap:5px;background:rgba(18,22,27,.96);border:1px solid var(--line);border-radius:20px;backdrop-filter:blur(22px);box-shadow:var(--shadow)}
+  .mobile.open{display:flex}
+  .mobile a{padding:13px 12px;border-radius:12px;font-size:.74rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+  .mobile a:hover{background:rgba(255,255,255,.06)}
+  .hero-grid,.media-feature,.split,.coverage{grid-template-columns:1fr}
+  .hero-card,.hero-card img,.hero-card video{min-height:480px;height:480px}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .section-title{grid-template-columns:1fr}
+  .section-title p{margin:0}
+  .footer-grid{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .container{width:min(100% - 20px,1240px)}
+  .nav{width:calc(100% - 20px);margin-top:8px;padding:8px 10px 8px 12px}
+  .brand strong{font-size:1.35rem}
+  .hero{padding-top:105px}
+  .hero h1{font-size:clamp(3rem,14vw,4.55rem)}
+  .hero-copy{font-size:1rem}
+  .hero-card,.hero-card img,.hero-card video{min-height:390px;height:390px}
+  .services-grid,.media-stack,.form-grid{grid-template-columns:1fr}
+  .media-big{min-height:410px}
+  .media-tile{min-height:260px}
+  .field.full{grid-column:auto}
+  .panel,.form-card,.review-card,.footer-card{padding:23px}
+  .section{padding:86px 0}
+  .fab{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{transition:none;opacity:1;transform:none}
+}
 </style>
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"AutomotiveBusiness",
+ "name":"REVLINE Mobile Diagnostics & Repair",
+ "url":"https://revlineutah.com/",
+ "telephone":"+1-224-345-8151",
+ "email":"revlineutah@gmail.com",
+ "areaServed":["Utah County","Salt Lake County","Davis County","Weber County"],
+ "serviceType":["Vehicle Diagnostics","Electrical Repair","Vehicle Programming","Vehicle Coding","Module Adaptation","General Automotive Repair","RV Electrical","UTV Repair","Trailer Electrical","Lift Kit Installation"]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div id="scene" aria-hidden="true"><div class="css-fallback"></div><div class="scene-wash"></div></div>
+<div id="scene" aria-hidden="true"><div class="scene-fallback"></div><div class="scene-vignette"></div></div>
 
 <header>
-  <div class="nav">
-    <a class="brand" href="#home" aria-label="REVLINE home"><img src="revline-r.webp" alt="REVLINE logo" width="44" height="44"><div><strong>REV<span>LINE</span></strong><small>Mobile Diagnostics & Repair</small></div></a>
-    <nav class="navlinks" aria-label="Primary navigation">
-      <a href="#home">Home</a><a href="#services">Services</a><a href="#work">Our Work</a><a href="#reviews">Reviews</a><a href="#coverage">Coverage</a><a class="navcta" href="#request">Book Service</a>
-    </nav>
-    <div class="phone">(224) 345-8151</div>
-    <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+<nav class="nav">
+  <a class="brand" href="#home" aria-label="REVLINE home">
+    <img src="revline-r.webp" alt="REVLINE logo" width="44" height="44">
+    <span><strong>REV<span>LINE</span></strong><small>Mobile Diagnostics & Repair</small></span>
+  </a>
+  <div class="navlinks">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#work">Our Work</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#coverage">Coverage</a>
   </div>
-  <div class="mobile" id="mobileMenu"><a href="#home">Home</a><a href="#services">Services</a><a href="#work">Our Work</a><a href="#reviews">Reviews</a><a href="#coverage">Coverage</a><a href="#request">Book Service</a></div>
+  <a class="navcta" href="#request">Book Service</a>
+  <a class="phone" href="tel:+12243458151">(224) 345-8151</a>
+  <button class="menu" id="menuBtn" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <div class="mobile" id="mobileMenu">
+    <a href="#home">Home</a><a href="#services">Services</a><a href="#work">Our Work</a><a href="#reviews">Reviews</a><a href="#coverage">Coverage</a><a href="#request">Book Service</a>
+  </div>
+</nav>
 </header>
 
 <main id="main">
 <section class="hero" id="home">
-<div class="container hero-grid">
-<div class="reveal">
-<div class="kicker"><i></i> Mobile service • Utah</div>
-<h1>ADVANCED<br><em>DIAGNOSTICS.</em><br>ELECTRICAL.<br>PROGRAMMING.</h1>
-<p class="hero-copy">Professional mobile diagnostics, coding, module programming, electrical troubleshooting and repair — brought directly to your vehicle.</p>
-<div class="hero-actions"><a class="btn btn-primary" href="#request">Request Service</a><a class="btn btn-glass" href="tel:+12243458151">Call Now</a></div>
-<div class="trust"><span>On-site service</span><span>Advanced scan tools</span><span>European + domestic</span><span>RV / UTV / trailers</span></div>
-</div>
-<div class="hero-card glass reveal">
-<img src="media/truck-work.webp" alt="REVLINE service truck" fetchpriority="high">
-<div class="hero-card-copy"><div><strong>Mobile Diagnostics & Repair</strong><span>Utah County • Salt Lake County</span></div><a class="btn btn-glass" href="#work">See Our Work</a></div>
-</div>
-</div>
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="kicker"><i></i> Mobile Service · Utah</div>
+      <h1>DIAGNOSE IT.<br><em>FIX IT.</em><br>RIGHT.</h1>
+      <p class="hero-copy">Professional mobile diagnostics, programming, coding, electrical troubleshooting and repair — brought directly to your vehicle.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#request">Request Service</a>
+        <a class="btn btn-glass" href="#work">See Our Work</a>
+      </div>
+      <div class="trust"><span>Advanced Diagnostics</span><span>Mobile Service</span><span>European + Domestic</span><span>Utah County</span></div>
+    </div>
+    <div class="hero-card glass reveal">
+      <img class="hero-media-fallback" src="media/truck-work.webp" alt="REVLINE service truck" loading="eager">
+      <video class="hero-media-video" autoplay muted loop playsinline preload="metadata" poster="media/service-detail-poster.webp" aria-label="REVLINE mobile service work">
+        <source src="media/mobile-work.mp4" type="video/mp4">
+      </video>
+      <div class="hero-card-copy"><div><strong>Mobile Diagnostics & Repair</strong><span>Utah County · Salt Lake County</span></div><a class="btn btn-glass" href="#work">See Our Work</a></div>
+    </div>
+  </div>
 </section>
 
 <section class="section" id="services">
-<div class="container">
-<div class="section-title reveal"><div><div class="eyebrow">What we do</div><h2>BUILT AROUND<br><span>DIAGNOSIS FIRST.</span></h2></div><p>REVLINE focuses on the work that requires real troubleshooting: scan data, electrical faults, module communication, programming, calibration and repairs that make sense to complete on-site.</p></div>
-<div class="services-grid">
-<article class="service glass reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M7 4v6m10-6v6M5 13h14v7H5z"/><path d="M8 16h2m4 0h2"/></svg></div><h3>Advanced Diagnostics</h3><p>Check-engine lights, fault tracing, live data, module communication and root-cause diagnosis.</p><b>Starting at $100</b></article>
-<article class="service glass reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="7"/></svg></div><h3>Electrical</h3><p>Wiring, voltage-drop testing, parasitic draws, CAN issues, batteries and electrical troubleshooting.</p><b>From $120/hr</b></article>
-<article class="service glass reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M7 3h10v4H7zM5 7h14v13H5z"/><path d="M9 11h6m-6 4h4"/></svg></div><h3>Programming & Coding</h3><p>European and domestic vehicles: module programming, software setup, coding, configuration and adaptations.</p><b>Broad vehicle coverage</b></article>
-<article class="service glass reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3l3 6 6 .9-4.5 4.4L17.5 21 12 18l-5.5 3 1-6.7L3 9.9 9 9z"/></svg></div><h3>General Repair</h3><p>Starters, alternators, cooling systems, brakes, suspension, belts, maintenance and supported mobile repairs.</p><b>Quote after review</b></article>
-<article class="service glass reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h4m-4 3h4m3-3h3m-3 3h3"/></svg></div><h3>RV / Camper</h3><p>12V/120V systems, lithium batteries, inverters, solar, distribution, troubleshooting and installation support.</p><b>Electrical focused service</b></article>
-<article class="service glass reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M10 17h4M4 14l3-6h6l4 6M7 8l2-4h4l2 4"/></svg></div><h3>UTV / ATV</h3><p>Polaris and supported off-road vehicles: diagnostics, electrical work, drivetrain and accessory installation.</p><b>Specialty work</b></article>
-<article class="service glass reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h12v8H3zM15 11h3l3 3v2h-6z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></div><h3>Trailer Service</h3><p>Trailer wiring, lighting, brakes, connectors and electrical troubleshooting.</p><b>Inspection + repair</b></article>
-<article class="service glass reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20h16M6 17l2-6h8l2 6M9 11V7h6v4M12 7V4"/></svg></div><h3>Lift Kits & Accessories</h3><p>Lift kits, off-road accessories, electrical accessories and supported upgrades installed properly.</p><b>Custom work available</b></article>
-</div></div></section>
+  <div class="container">
+    <div class="section-title reveal">
+      <div><div class="eyebrow">What we do</div><h2>TECHNICAL<br><span>SERVICE.</span></h2></div>
+      <p>Built around diagnosis first. From a warning light or electrical fault to module coding, programming, general repair and off-road work, REVLINE comes to the vehicle.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service glass reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/><path d="M5 4 3 2m16 2 2-2"/></svg></div>
+        <h3>Diagnostics</h3><p>Full-system scan, live data, fault tracing, drivability and root-cause diagnostics.</p><b>Starting at $100</b>
+      </article>
+      <article class="service glass reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h10v6H7z"/><path d="M5 9h14v12H5z"/><path d="M9 13h6M9 17h4"/></svg></div>
+        <h3>Programming & Coding</h3><p>Module programming, coding, configuration, software updates, adaptations and calibrations across European, domestic and Asian vehicles.</p><b>Vehicle-specific</b>
+      </article>
+      <article class="service glass reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 12h18"/><path d="m7 7 10 10M17 7 7 17"/></svg></div>
+        <h3>Electrical</h3><p>Wiring, modules, power loss, parasitic draw, CAN-bus faults, battery systems and electrical troubleshooting.</p><b>Starting at $120/hr</b>
+      </article>
+      <article class="service glass reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M7 4v6M17 4v6M4 17h16M8 14l-2 2 2 2m8-4 2 2-2 2"/></svg></div>
+        <h3>General Repair</h3><p>Brakes, starters, alternators, cooling, suspension, belts, maintenance and mobile repair work.</p><b>Quote after inspection</b>
+      </article>
+      <article class="service glass reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18V8l8-4 8 4v10l-8 4-8-4Z"/><path d="M4 8l8 4 8-4"/></svg></div>
+        <h3>RV / Camper</h3><p>Battery banks, inverters, solar systems, wiring, charging and electrical troubleshooting.</p><b>System-specific</b>
+      </article>
+      <article class="service glass reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 15h18l-2-6H5l-2 6Z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div>
+        <h3>UTV / ATV</h3><p>Polaris, Can-Am and other off-road machines — diagnostics, service and repair.</p><b>On-site when practical</b>
+      </article>
+      <article class="service glass reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 15h14l-2-5H7l-2 5Z"/><path d="M3 17h18M7 15v3m10-3v3"/><circle cx="5" cy="18" r="1.5"/><circle cx="19" cy="18" r="1.5"/></svg></div>
+        <h3>Trailer</h3><p>Trailer wiring, lights, brakes, power distribution and accessory installations.</p><b>Custom jobs welcome</b>
+      </article>
+      <article class="service glass reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16M6 19v-7l6-6 6 6v7"/><path d="M9 19v-5h6v5"/></svg></div>
+        <h3>Lift Kits & Accessories</h3><p>Lift kits, off-road accessories and upgrade installations for trucks and UTVs.</p><b>Vehicle-specific</b>
+      </article>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="work">
-<div class="container">
-<div class="section-title reveal"><div><div class="eyebrow">Real work. Real equipment.</div><h2>OUR <span>WORK.</span></h2></div><p>Real REVLINE work: diagnostics, engine repair, UTV builds, RV electrical systems and mobile service.</p></div>
-<div class="media-grid">
-<div class="work-large">
-<button class="media reveal" data-lightbox="media/bmw-front-repair.jpeg"><img src="media/bmw-front-repair.jpeg" alt="BMW front-end repair" loading="lazy"><div class="media-label"><strong>BMW repair & diagnostics</strong><span>On-site</span></div></button>
-<div class="media video-card reveal"><video autoplay muted loop playsinline preload="metadata" poster="media/service-detail-poster.webp"><source src="media/field-detail-opt.mp4" type="video/mp4"></video><div class="media-label"><strong>Field service</strong><span>Video</span></div></div>
-</div>
-<div class="work-stack">
-<button class="media reveal" data-lightbox="media/engine-repair.jpeg"><img src="media/engine-repair.jpeg" alt="Engine repair work" loading="lazy"><div class="media-label"><strong>Engine work</strong><span>Repair</span></div></button>
-<button class="media reveal" data-lightbox="media/diagnostic-tool.webp"><img src="media/diagnostic-tool.webp" alt="Professional automotive diagnostic tool" loading="lazy"><div class="media-label"><strong>Advanced scan tools</strong><span>Diagnostics</span></div></button>
-<button class="media reveal" data-lightbox="media/rv-electrical.webp"><img src="media/rv-electrical.webp" alt="RV electrical installation" loading="lazy"><div class="media-label"><strong>RV electrical</strong><span>Installation</span></div></button>
-<button class="media reveal" data-lightbox="media/utv-front.webp"><img src="media/utv-front.webp" alt="Polaris UTV build" loading="lazy"><div class="media-label"><strong>UTV build</strong><span>Off-road</span></div></button>
-</div></div></div></section>
-
-<section class="section">
-<div class="container split">
-<div class="panel glass reveal"><div class="eyebrow">Why REVLINE</div><h3>Technical work without the shop drop-off.</h3><p>When the vehicle can be diagnosed or repaired where it sits, you shouldn't have to tow it somewhere just to get a serious answer.</p><ul class="list"><li>Dealer-level diagnostic mindset without the dealer visit.</li><li>European, domestic, diesel, RV and off-road experience.</li><li>Clear communication before parts are purchased.</li><li>Mobile service built around the actual problem.</li></ul></div>
-<div class="panel glass reveal"><div class="eyebrow">Programming coverage</div><h3>More than European cars.</h3><p>Programming, coding, module setup, adaptations and calibration support across a broad range of manufacturers. Vehicle/VIN capability is reviewed before work begins.</p><div class="chips"><span class="chip">BMW</span><span class="chip">Audi</span><span class="chip">Mercedes-Benz</span><span class="chip">VW</span><span class="chip">Porsche</span><span class="chip">Ford</span><span class="chip">GM</span><span class="chip">Chevrolet</span><span class="chip">GMC</span><span class="chip">RAM</span><span class="chip">Dodge</span><span class="chip">Jeep</span><span class="chip">Toyota</span><span class="chip">Honda</span><span class="chip">Hyundai</span><span class="chip">Kia</span><span class="chip">Subaru</span><span class="chip">Lexus</span><span class="chip">Nissan</span><span class="chip">Tesla</span><span class="chip">Polaris</span></div></div>
-</div></section>
+  <div class="container">
+    <div class="section-title reveal">
+      <div><div class="eyebrow">Real work</div><h2>SEE IT<br><span>DONE.</span></h2></div>
+      <p>Actual REVLINE work — diagnostics, BMW repair, engine work, UTV builds and RV electrical systems.</p>
+    </div>
+    <div class="media-feature">
+      <div class="media-big glass reveal">
+        <img src="media/bmw-front-live.jpeg" alt="BMW front-end repair in progress" loading="lazy">
+        <div class="media-caption"><strong>BMW Repair</strong><p>Hands-on mechanical and diagnostic work performed on-site.</p></div>
+      </div>
+      <div class="media-stack">
+        <div class="media-tile glass reveal"><img src="media/diagnostic-tool.webp" alt="Automotive diagnostic equipment" loading="lazy"><div class="media-label"><strong>Diagnostic Equipment</strong><span>Advanced scan & testing</span></div></div>
+        <div class="media-tile glass reveal"><img src="media/rv-electrical.webp" alt="RV electrical installation" loading="lazy"><div class="media-label"><strong>RV Electrical</strong><span>Power systems & batteries</span></div></div>
+        <div class="media-tile glass reveal"><img src="media/utv-live.jpeg" alt="Polaris UTV work" loading="lazy"><div class="media-label"><strong>UTV / Off-Road</strong><span>Repair & upgrades</span></div></div>
+        <div class="media-tile glass reveal"><video autoplay muted loop playsinline preload="metadata" poster="media/service-detail-poster.webp"><source src="media/field-detail-opt.mp4" type="video/mp4"></video><div class="media-label"><strong>Field Work</strong><span>Mobile service</span></div></div>
+      </div>
+    </div>
+    <div class="split" style="margin-top:15px">
+      <div class="panel glass reveal"><div class="eyebrow">More field work</div><h3>ENGINES.<br>DRIVES.<br>ELECTRICAL.</h3><div class="chips"><span class="chip">Engine Repair</span><span class="chip">Turbo / Exhaust</span><span class="chip">Belts & Pulleys</span><span class="chip">Connectors</span><span class="chip">Drivetrain</span></div></div>
+      <div class="media-big glass reveal" style="min-height:420px"><img src="media/utv-drivetrain-live.jpeg" alt="UTV drivetrain service" loading="lazy"><div class="media-caption"><strong>Off-Road Builds & Repair</strong><p>From drivetrain service to lift kits and accessories, built for the way you use it.</p></div></div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="reviews">
-<div class="container"><div class="section-title reveal"><div><div class="eyebrow">Google</div><h2>REVIEWS <span>THAT MATTER.</span></h2></div><p>Read REVLINE's verified customer feedback directly on Google. No fabricated testimonials are used here.</p></div>
-<div class="review-card glass reveal"><div class="stars" aria-label="Five stars">★★★★★</div><h3>Real customers. Real work.</h3><p>Open the Google Business Profile to see the current rating, review count, recent feedback and customer photos.</p><a class="btn btn-primary" href="https://maps.app.goo.gl/eggpgzwZKD9AxB7c8?g_st=ic" target="_blank" rel="noopener">View Google Reviews</a></div>
-</div></section>
+  <div class="container">
+    <div class="review-card glass reveal">
+      <div class="eyebrow">Google Reviews</div>
+      <div class="stars">★★★★★</div>
+      <h3>REAL CUSTOMERS.<br>REAL FEEDBACK.</h3>
+      <p>Read REVLINE's current customer reviews directly on Google. The site does not invent testimonials or display fake reviews.</p>
+      <a class="btn btn-primary" href="https://maps.app.goo.gl/eggpgzwZKD9AxB7c8?g_st=ic" target="_blank" rel="noopener">Open Google Reviews</a>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="coverage">
-<div class="container"><div class="section-title reveal"><div><div class="eyebrow">We come to you</div><h2>SERVICE <span>AREA.</span></h2></div><p>Mobile service is centered in Utah County with coverage into Salt Lake County and additional Utah areas depending on the job.</p></div>
-<div class="coverage"><div class="map-wrap glass reveal"><iframe title="REVLINE service area map" loading="lazy" src="https://www.google.com/maps?q=Provo%2C%20UT&output=embed"></iframe></div><div class="panel glass reveal"><div class="eyebrow">Coverage</div><h3>Utah County first.<br>Broader coverage available.</h3><div class="chips"><span class="chip">Alpine</span><span class="chip">American Fork</span><span class="chip">Bluffdale</span><span class="chip">Cedar Hills</span><span class="chip">Davis County</span><span class="chip">Draper</span><span class="chip">Eagle Mountain</span><span class="chip">Herriman</span><span class="chip">Highland</span><span class="chip">Lehi</span><span class="chip">Lindon</span><span class="chip">Mapleton</span><span class="chip">Murray</span><span class="chip">Orem</span><span class="chip">Payson</span><span class="chip">Pleasant Grove</span><span class="chip">Provo</span><span class="chip">Riverton</span><span class="chip">Salt Lake County</span><span class="chip">Sandy</span><span class="chip">Saratoga Springs</span><span class="chip">South Jordan</span><span class="chip">Spanish Fork</span><span class="chip">Springville</span><span class="chip">Utah County</span><span class="chip">Vineyard</span><span class="chip">Weber County</span><span class="chip">West Jordan</span></div><p>Need a location outside the primary area? Send your city and vehicle. Longer-distance jobs may have an additional travel/service fee.</p></div></div>
-</div></section>
+  <div class="container">
+    <div class="section-title reveal">
+      <div><div class="eyebrow">Mobile coverage</div><h2>WE COME<br><span>TO YOU.</span></h2></div>
+      <p>Core coverage across Utah County with service extending into Salt Lake, Davis and Weber County depending on the job and distance.</p>
+    </div>
+    <div class="coverage">
+      <div class="map-wrap glass reveal">
+        <iframe loading="lazy" title="REVLINE service area map" src="https://www.google.com/maps?q=Provo%2C%20UT&output=embed" allowfullscreen></iframe>
+      </div>
+      <div class="panel glass reveal">
+        <div class="eyebrow">Cities & areas</div>
+        <div class="chips">
+          <span class="chip">Provo</span><span class="chip">Orem</span><span class="chip">Lehi</span><span class="chip">American Fork</span><span class="chip">Pleasant Grove</span><span class="chip">Lindon</span><span class="chip">Vineyard</span><span class="chip">Spanish Fork</span><span class="chip">Springville</span><span class="chip">Payson</span><span class="chip">Saratoga Springs</span><span class="chip">Eagle Mountain</span><span class="chip">Draper</span><span class="chip">South Jordan</span><span class="chip">Riverton</span><span class="chip">Bluffdale</span><span class="chip">Salt Lake County</span><span class="chip">Davis County</span><span class="chip">Weber County</span>
+        </div>
+        <ul class="list">
+          <li>Primary mobile service: Utah County</li>
+          <li>Additional coverage available depending on distance and job type</li>
+          <li>Service fee may apply beyond the core area</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="request">
-<div class="container"><div class="section-title reveal"><div><div class="eyebrow">Request service</div><h2>Tell us <span>what's wrong.</span></h2></div><p>Send the vehicle details and problem once. REVLINE receives the request by email and follows up with the next step.</p></div>
-<form class="form-card glass reveal" action="https://formsubmit.co/revlineutah@gmail.com" method="POST">
-<input type="hidden" name="_subject" value="New REVLINE Service Request"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_next" value="https://revlineutah.com/thank-you.html"><input type="hidden" name="_autoresponse" value="Thanks for contacting REVLINE Mobile Diagnostics & Repair. We received your request and will review the information and contact you with the next step.">
-<div class="form-grid">
-<div class="field"><label for="name">Full Name *</label><input id="name" name="Name" autocomplete="name" required placeholder="Your name"></div>
-<div class="field"><label for="phoneField">Phone *</label><input id="phoneField" name="Phone" type="tel" autocomplete="tel" required placeholder="224-345-8151"></div>
-<div class="field"><label for="email">Email</label><input id="email" name="Email" type="email" autocomplete="email" placeholder="you@example.com"></div>
-<div class="field"><label for="city">City / Town *</label><select id="city" name="City" required><option value="">Select city / town</option><option value="Alpine">Alpine</option><option value="American Fork">American Fork</option><option value="Bluffdale">Bluffdale</option><option value="Cedar Hills">Cedar Hills</option><option value="Davis County">Davis County</option><option value="Draper">Draper</option><option value="Eagle Mountain">Eagle Mountain</option><option value="Herriman">Herriman</option><option value="Highland">Highland</option><option value="Lehi">Lehi</option><option value="Lindon">Lindon</option><option value="Mapleton">Mapleton</option><option value="Murray">Murray</option><option value="Orem">Orem</option><option value="Other Utah">Other Utah</option><option value="Payson">Payson</option><option value="Pleasant Grove">Pleasant Grove</option><option value="Provo">Provo</option><option value="Riverton">Riverton</option><option value="Salt Lake County">Salt Lake County</option><option value="Sandy">Sandy</option><option value="Saratoga Springs">Saratoga Springs</option><option value="South Jordan">South Jordan</option><option value="Spanish Fork">Spanish Fork</option><option value="Springville">Springville</option><option value="Utah County">Utah County</option><option value="Vineyard">Vineyard</option><option value="Weber County">Weber County</option><option value="West Jordan">West Jordan</option></select></div>
-<div class="field"><label for="make">Vehicle Make *</label><select id="make" name="Vehicle Make" required><option value="">Select make</option><option value="Acura">Acura</option><option value="Alfa Romeo">Alfa Romeo</option><option value="Audi">Audi</option><option value="BMW">BMW</option><option value="Buick">Buick</option><option value="Cadillac">Cadillac</option><option value="Chevrolet">Chevrolet</option><option value="Chrysler">Chrysler</option><option value="Dodge">Dodge</option><option value="Ford">Ford</option><option value="Genesis">Genesis</option><option value="GMC">GMC</option><option value="Honda">Honda</option><option value="Hyundai">Hyundai</option><option value="INFINITI">INFINITI</option><option value="Jaguar">Jaguar</option><option value="Jeep">Jeep</option><option value="Kia">Kia</option><option value="Land Rover">Land Rover</option><option value="Lexus">Lexus</option><option value="Lincoln">Lincoln</option><option value="Lucid">Lucid</option><option value="Mazda">Mazda</option><option value="Mercedes-Benz">Mercedes-Benz</option><option value="Mitsubishi">Mitsubishi</option><option value="Nissan">Nissan</option><option value="Polestar">Polestar</option><option value="Porsche">Porsche</option><option value="RAM">RAM</option><option value="Rivian">Rivian</option><option value="Subaru">Subaru</option><option value="Tesla">Tesla</option><option value="Toyota">Toyota</option><option value="Volkswagen">Volkswagen</option><option value="Volvo">Volvo</option><option value="Polaris">Polaris</option><option value="Can-Am">Can-Am</option><option value="Freightliner">Freightliner</option><option value="Volvo Trucks">Volvo Trucks</option></select></div>
-<div class="field"><label for="model">Vehicle Model *</label><select id="model" name="Vehicle Model" required disabled><option value="">Select make first</option></select></div>
-<div class="field"><label for="year">Year (optional)</label><select id="year" name="Year"><option value="">Select year</option><option>2027</option><option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option><option>2017</option><option>2016</option><option>2015</option><option>2014</option><option>2013</option><option>2012</option><option>2011</option><option>2010</option><option>2009</option><option>2008</option><option>2007</option><option>2006</option><option>2005</option><option>2004</option><option>2003</option><option>2002</option><option>2001</option><option>2000</option><option>1999</option><option>1998</option><option>1997</option><option>1996</option><option>1995</option></select></div>
-<div class="field"><label for="mileage">Mileage (optional)</label><input id="mileage" name="Mileage" inputmode="numeric" placeholder="120,000"></div>
-<div class="field full"><label for="service">Service needed *</label><select id="service" name="Service Needed" required><option value="">Select service</option><option>Diagnostics</option><option>Electrical Repair</option><option>Programming & Coding</option><option>Module / Adaptation / Calibration</option><option>General Repair / Maintenance</option><option>RV / Camper Electrical</option><option>UTV / ATV</option><option>Trailer Electrical</option><option>Lift Kit / Accessories</option><option>Pre-Purchase Inspection</option><option>Other / Need Help</option></select></div>
-<div class="field full"><label for="issue">What's happening? *</label><textarea id="issue" name="Description" required placeholder="Tell us the symptoms, warning lights, codes, parts you already replaced, or anything else we should know."></textarea></div>
-</div>
-<div class="form-foot"><p class="form-note">By submitting, you are requesting contact from REVLINE. Parts are separate unless specifically quoted. Your information is used to respond to this service request.</p><button class="btn btn-primary" type="submit">Send Request</button></div>
-</form></div></section>
+  <div class="container">
+    <div class="section-title reveal">
+      <div><div class="eyebrow">Request service</div><h2>PUT YOUR<br><span>PROBLEM</span><br>HERE.</h2></div>
+      <p>Give us the vehicle, symptoms and location. We review the request and contact you with the next step.</p>
+    </div>
+    <form class="form-card glass reveal" action="https://formsubmit.co/revlineutah@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="REVLINE Website Service Request">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://revlineutah.com/thank-you.html">
+      <input type="hidden" name="_autoresponse" value="Thanks for contacting REVLINE Mobile Diagnostics & Repair. We received your service request and will review it shortly. We will contact you with the next step.">
+      <input type="text" name="_honey" style="display:none">
+      <div class="form-grid">
+        <div class="field"><label for="name">Name *</label><input id="name" name="Name" required placeholder="Your name"></div>
+        <div class="field"><label for="phone">Phone *</label><input id="phone" name="Phone" required inputmode="tel" placeholder="224-345-8151"></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="Email" type="email" placeholder="you@example.com"></div>
+        <div class="field"><label for="city">City / Town *</label>
+          <select id="city" name="City" required><option value="">Select Utah city / area</option>
+            <option>Provo</option><option>Orem</option><option>Lehi</option><option>American Fork</option><option>Pleasant Grove</option><option>Lindon</option><option>Vineyard</option><option>Spanish Fork</option><option>Springville</option><option>Payson</option><option>Saratoga Springs</option><option>Eagle Mountain</option><option>Mapleton</option><option>Salem</option><option>Santaquin</option><option>Fountain Green</option><option>Nephi</option><option>Heber City</option><option>Park City</option><option>Draper</option><option>South Jordan</option><option>Riverton</option><option>Bluffdale</option><option>Herriman</option><option>Murray</option><option>West Jordan</option><option>West Valley City</option><option>Taylorsville</option><option>Salt Lake City</option><option>Layton</option><option>Farmington</option><option>Bountiful</option><option>Centerville</option><option>Clearfield</option><option>Ogden</option><option>Roy</option><option>Other / Not listed</option>
+          </select>
+        </div>
+        <div class="field manual full" id="cityManualWrap"><label for="cityManual">City / Town (manual)</label><input id="cityManual" name="City Manual" placeholder="Enter your city"></div>
+        <div class="field"><label for="make">Vehicle Make *</label>
+          <select id="make" name="Vehicle Make" required><option value="">Select make</option>
+            <option>Acura</option><option>Audi</option><option>BMW</option><option>Buick</option><option>Cadillac</option><option>Chevrolet</option><option>Chrysler</option><option>Dodge</option><option>Ford</option><option>Genesis</option><option>GMC</option><option>Honda</option><option>Hyundai</option><option>INFINITI</option><option>Jaguar</option><option>Jeep</option><option>Kia</option><option>Land Rover</option><option>Lexus</option><option>Lincoln</option><option>Lucid</option><option>Mazda</option><option>Mercedes-Benz</option><option>Mitsubishi</option><option>Nissan</option><option>Polestar</option><option>Polaris</option><option>Porsche</option><option>RAM</option><option>Rivian</option><option>Subaru</option><option>Tesla</option><option>Toyota</option><option>Volkswagen</option><option>Volvo</option><option>Can-Am</option><option>Freightliner</option><option>Volvo Trucks</option><option>Other / Not listed</option>
+          </select>
+        </div>
+        <div class="field"><label for="model">Vehicle Model *</label><select id="model" name="Vehicle Model" required disabled><option value="">Select make first</option></select></div>
+        <div class="field manual" id="makeManualWrap"><label for="makeManual">Make (manual)</label><input id="makeManual" name="Vehicle Make Manual" placeholder="Enter make"></div>
+        <div class="field manual" id="modelManualWrap"><label for="modelManual">Model (manual)</label><input id="modelManual" name="Vehicle Model Manual" placeholder="Enter model"></div>
+        <div class="field"><label for="year">Year <span style="opacity:.55">(optional)</span></label><select id="year" name="Year"><option value="">Any / not sure</option></select></div>
+        <div class="field"><label for="mileage">Mileage <span style="opacity:.55">(optional)</span></label><input id="mileage" name="Mileage" inputmode="numeric" placeholder="e.g. 85000"></div>
+        <div class="field"><label for="service">Service needed *</label>
+          <select id="service" name="Service Needed" required><option value="">Select service</option><option>Diagnostics</option><option>Programming & Coding</option><option>Electrical Repair</option><option>General Repair / Maintenance</option><option>RV / Camper</option><option>UTV / ATV</option><option>Trailer</option><option>Lift Kit / Accessories</option><option>Other</option></select>
+        </div>
+        <div class="field"><label for="date">Preferred Date</label><input id="date" name="Preferred Date" type="date"></div>
+        <div class="field full"><label for="problem">What’s happening? *</label><textarea id="problem" name="Problem" rows="6" required placeholder="Tell us the symptoms, warning lights, noises, parts you already have, or anything else we should know."></textarea></div>
+      </div>
+      <button class="btn btn-primary" type="submit">Send Request</button>
+      <div class="notice" id="formNotice">Your request is ready to send.</div>
+    </form>
+  </div>
+</section>
 </main>
 
-<footer class="footer"><div class="container footer-grid">
-<div><strong>REV<span>LINE</span></strong><p>Mobile Diagnostics & Repair<br>Utah County • Salt Lake County<br>Professional on-site service.</p><div class="socials">
-<a class="social" aria-label="Instagram" href="https://www.instagram.com/revline_mobile.mechanic" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.7" r="1"/></svg></a>
-<a class="social" aria-label="Facebook" href="https://www.facebook.com/share/1CFwMpVn9x/?mibextid=wwXIfr" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.6 21v-8h2.8l.4-3h-3.2V8.1c0-.9.3-1.5 1.6-1.5H17V3.9c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1V10H8v3h2.6v8z"/></svg></a>
-<a class="social" aria-label="TikTok" href="https://www.tiktok.com/@revline_mobile.mechanic" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4v10.2a4.1 4.1 0 1 1-3.1-4"/><path d="M14 4c1 2.3 2.7 3.6 5 3.7"/></svg></a>
-<a class="social" aria-label="Google Business Profile" href="https://maps.app.goo.gl/eggpgzwZKD9AxB7c8?g_st=ic" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s7-7 7-12A7 7 0 0 0 5 9c0 5 7 12 7 12z"/><circle cx="12" cy="9" r="2.3"/></svg></a>
-</div></div>
-<div><div class="footer-title">Contact</div><a class="contact-line" href="tel:+12243458151">224-345-8151</a><a class="contact-line" href="mailto:revlineutah@gmail.com">revlineutah@gmail.com</a><p>Mon–Fri 8:00 AM–6:00 PM<br>Sat 8:00 AM–1:00 PM</p></div>
-<div><div class="footer-title">Book</div><a class="btn btn-primary" href="#request">Request Service</a><p style="margin-top:12px">Need a quote? Tell us the vehicle, city and problem.</p></div>
-</div></footer>
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-card glass reveal">
+      <a class="brand" href="#home"><img src="revline-r.webp" alt="REVLINE" width="44" height="44"><span><strong>REV<span>LINE</span></strong><small>Mobile Diagnostics & Repair</small></span></a>
+      <p style="margin-top:14px;color:#c3cbcf;line-height:1.65">Professional mobile diagnostics, electrical repair, programming and mechanical service across Utah.</p>
+    </div>
+    <div class="footer-card glass reveal">
+      <div class="eyebrow">Contact</div>
+      <p style="margin:12px 0 0"><a href="tel:+12243458151">(224) 345-8151</a><br><a href="mailto:revlineutah@gmail.com">revlineutah@gmail.com</a></p>
+      <div class="footer-links">
+        <a class="social" href="https://www.instagram.com/revline_mobile.mechanic" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1"/></svg></a>
+        <a class="social" href="https://www.facebook.com/share/1CFwMpVn9x/?mibextid=wwXIfr" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 21v-8h2.7l.4-3h-3.1V8.1c0-.9.2-1.5 1.6-1.5h1.7V4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V10H7v3h2.5v8h3.7Z"/></svg></a>
+        <a class="social" href="https://www.tiktok.com/@revline_mobile.mechanic" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4c.5 2.8 2.3 4.5 5 4.7v3c-1.9-.1-3.6-.7-5-1.8V16a5 5 0 1 1-4.5-5 7 7 0 0 1 1.5.2v3a2.5 2.5 0 1 0 0 4.8c1.4 0 2.5-1.1 2.5-2.5V4h.5Z"/></svg></a>
+        <a class="social" href="https://maps.app.goo.gl/eggpgzwZKD9AxB7c8?g_st=ic" aria-label="Google Business" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.1 7-11A7 7 0 0 0 5 10c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-card glass reveal">
+      <div class="eyebrow">Hours</div>
+      <p style="margin:12px 0 0;color:#d4dadd;line-height:1.8">Mon–Fri · 8:00 AM–6:00 PM<br>Sat · 8:00 AM–1:00 PM<br>Sun · Closed</p>
+      <a class="btn btn-primary" href="#request" style="margin-top:12px">Request Service</a>
+    </div>
+  </div>
+  <div class="container bottom">© 2026 REVLINE Mobile Diagnostics & Repair · Utah</div>
+</footer>
 
-<div class="floating"><a class="float-btn" aria-label="Text REVLINE" href="sms:+12243458151"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v11H9l-5 4z"/></svg></a><a class="float-btn red" aria-label="Call REVLINE" href="tel:+12243458151"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.6 3.8l3 2.8-1.6 3a13 13 0 0 0 6.4 6.4l3-1.6 2.8 3-1.8 2.2c-.7.9-2 .9-3 .6C8.4 18.1 5.9 15.6 3.7 8.6c-.3-1-.3-2.3.6-3z"/></svg></a></div>
+<div class="fab" aria-label="Quick contact">
+  <a href="sms:+12243458151" aria-label="Text REVLINE"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><path d="M4 5.5h16v11H9l-5 3v-14Z"/><path d="M8 9.5h8M8 12.5h5"/></svg></a>
+  <a href="tel:+12243458151" aria-label="Call REVLINE"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" width="20" height="20"><path d="M7.2 3.6 10 6.7 8.2 9a13 13 0 0 0 6.8 6.8l2.3-1.8 3.1 2.8-1.4 2.5c-.5.8-1.4 1.2-2.3 1.1C9.7 19.4 4.6 14.3 3.6 7.3c-.1-.9.3-1.8 1.1-2.3l2.5-1.4Z"/></svg></a>
+</div>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Media viewer"><button id="closeLightbox" aria-label="Close">×</button><img id="lightboxImg" alt=""></div>
-<script>(() => {
-"use strict";
-const MODELS = {"Acura":["ILX","Integra","MDX","RDX","TLX","RLX","NSX","TSX","ZDX"],"Alfa Romeo":["Giulia","Stelvio","Tonale","4C"],"Audi":["A3","A4","A5","A6","A7","A8","Q3","Q4 e-tron","Q5","Q7","Q8","e-tron","RS 3","RS 5","RS 6","RS 7","RS Q8","S3","S4","S5","S6","S7","S8"],"BMW":["2 Series","3 Series","4 Series","5 Series","6 Series","7 Series","8 Series","X1","X2","X3","X4","X5","X6","X7","XM","i4","i5","i7","iX","M2","M3","M4","M5","M8","Z4"],"Buick":["Encore","Encore GX","Enclave","Envision","LaCrosse","Regal"],"Cadillac":["CT4","CT5","CT6","Escalade","LYRIQ","XT4","XT5","XT6","ATS","CTS"],"Chevrolet":["Blazer","Bolt EV","Camaro","Colorado","Corvette","Equinox","Express","Impala","Malibu","Silverado 1500","Silverado 2500HD","Silverado 3500HD","Suburban","Tahoe","Traverse","Trax"],"Chrysler":["200","300","Pacifica","Pacifica Hybrid","Town & Country","Voyager"],"Dodge":["Challenger","Charger","Durango","Grand Caravan","Hornet","Journey"],"Ford":["Bronco","Bronco Sport","Edge","Escape","Expedition","Explorer","F-150","F-150 Lightning","F-250 Super Duty","F-350 Super Duty","F-450 Super Duty","Fusion","Maverick","Mustang","Mustang Mach-E","Ranger","Transit","Transit Connect"],"Genesis":["G70","G80","G90","GV60","GV70","GV80"],"GMC":["Acadia","Canyon","Hummer EV","Sierra 1500","Sierra 2500HD","Sierra 3500HD","Terrain","Yukon","Yukon XL"],"Honda":["Accord","Civic","CR-V","CR-Z","Element","Fit","HR-V","Insight","Odyssey","Passport","Pilot","Ridgeline"],"Hyundai":["Accent","Elantra","Ioniq","Ioniq 5","Ioniq 6","Kona","Palisade","Santa Cruz","Santa Fe","Sonata","Tucson","Venue"],"INFINITI":["Q50","Q60","QX30","QX50","QX55","QX60","QX80","G35","G37"],"Jaguar":["F-Pace","F-Type","I-Pace","XE","XF","XJ"],"Jeep":["Cherokee","Compass","Gladiator","Grand Cherokee","Grand Wagoneer","Renegade","Wrangler","Wagoneer"],"Kia":["Carnival","EV6","Forte","K4","K5","Niro","Optima","Rio","Seltos","Sorento","Soul","Sportage","Telluride"],"Land Rover":["Defender","Discovery","Discovery Sport","Range Rover","Range Rover Sport","Range Rover Velar","Range Rover Evoque"],"Lexus":["ES","GX","IS","LC","LS","LX","NX","RC","RX","RZ","UX"],"Lincoln":["Aviator","Corsair","MKC","MKZ","Nautilus","Navigator"],"Lucid":["Air"],"Mazda":["CX-3","CX-30","CX-5","CX-50","CX-9","CX-90","Mazda2","Mazda3","Mazda6","MX-5 Miata"],"Mercedes-Benz":["A-Class","C-Class","CLA","CLS","E-Class","G-Class","GLA","GLB","GLC","GLE","GLS","S-Class","SL","Sprinter","AMG GT"],"Mitsubishi":["Eclipse Cross","Mirage","Outlander","Outlander Sport"],"Nissan":["Altima","Armada","Frontier","Kicks","Leaf","Maxima","Murano","Pathfinder","Rogue","Sentra","Titan","Versa","Z"],"Polestar":["1","2","3","4","5"],"Porsche":["718 Boxster","718 Cayman","911","Cayenne","Macan","Panamera","Taycan"],"RAM":["1500","2500","3500","ProMaster","ProMaster City"],"Rivian":["R1T","R1S"],"Subaru":["Ascent","BRZ","Crosstrek","Forester","Impreza","Legacy","Outback","WRX"],"Tesla":["Model 3","Model S","Model X","Model Y","Cybertruck"],"Toyota":["4Runner","Camry","Corolla","Crown","GR86","GR Corolla","Grand Highlander","Highlander","Land Cruiser","Prius","RAV4","Sequoia","Sienna","Tacoma","Tundra","Venza"],"Volkswagen":["Atlas","Atlas Cross Sport","Golf","GTI","ID.4","ID.7","Jetta","Passat","Taos","Tiguan","Touareg"],"Volvo":["S60","S90","V60","V90","XC40","XC60","XC90"],"Polaris":["RZR","Ranger","General","Sportsman","Scrambler"],"Can-Am":["Maverick","Maverick X3","Defender","Commander","Outlander","Renegade"],"Freightliner":["Cascadia","M2","Custom Chassis"],"Volvo Trucks":["VNL","VNR","VHD","VAH"]};
-
-// Mobile navigation
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
-if (menuBtn && mobileMenu) {
-  menuBtn.addEventListener("click", () => {
-    const open = mobileMenu.classList.toggle("open");
-    menuBtn.setAttribute("aria-expanded", String(open));
-    menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-  });
-  mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
-    mobileMenu.classList.remove("open");
-    menuBtn.setAttribute("aria-expanded","false");
-  }));
-}
-
-// Reveal-on-scroll
-const reveal = [...document.querySelectorAll(".reveal")];
-if ("IntersectionObserver" in window) {
-  const io = new IntersectionObserver(entries => entries.forEach(entry => {
-    if (entry.isIntersecting) { entry.target.classList.add("in"); io.unobserve(entry.target); }
-  }), {threshold:.05});
-  reveal.forEach(el => io.observe(el));
-} else reveal.forEach(el => el.classList.add("in"));
-
-// Vehicle model selector
-const make = document.getElementById("make");
-const model = document.getElementById("model");
-make?.addEventListener("change", () => {
-  const list = MODELS[make.value] || [];
-  model.innerHTML = '<option value="">' + (list.length ? "Select model" : "Enter model manually") + "</option>";
-  model.disabled = !list.length;
-  list.forEach(name => {
-    const o = document.createElement("option");
-    o.value = name; o.textContent = name; model.appendChild(o);
-  });
-});
-
-// Gallery lightbox
-const lightbox = document.getElementById("lightbox");
-const lbImg = document.getElementById("lightboxImg");
-document.querySelectorAll("[data-lightbox]").forEach(btn => btn.addEventListener("click", () => {
-  const src = btn.getAttribute("data-lightbox");
-  if (!src || /\.mp4$/i.test(src)) return;
-  lbImg.src = src;
-  lightbox.classList.add("open");
-}));
-function closeLB() { lightbox?.classList.remove("open"); if (lbImg) lbImg.removeAttribute("src"); }
-document.getElementById("closeLightbox")?.addEventListener("click", closeLB);
-lightbox?.addEventListener("click", e => { if (e.target === lightbox) closeLB(); });
-addEventListener("keydown", e => { if (e.key === "Escape") closeLB(); });
-
-// Fixed, procedural Three.js industrial hex field
-function initScene() {
-  const host = document.getElementById("scene");
-  if (!host || !window.THREE) return;
-  try {
-    const THREE = window.THREE;
-    const scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(0x0a0d10, 22, 110);
-
-    const camera = new THREE.PerspectiveCamera(54, innerWidth / innerHeight, 0.1, 180);
-    camera.position.set(0, 10.5, 30);
-
-    const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true, powerPreference:"high-performance"});
-    renderer.setPixelRatio(Math.min(devicePixelRatio, 1.55));
-    renderer.setSize(innerWidth, innerHeight);
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.18;
-    host.appendChild(renderer.domElement);
-
-    scene.add(new THREE.HemisphereLight(0xe8f4f7, 0x11171b, 1.9));
-    const key = new THREE.DirectionalLight(0xf5fbff, 3.2); key.position.set(-18, 30, 22); scene.add(key);
-    const fill = new THREE.DirectionalLight(0x8bd9e8, 2.5); fill.position.set(22, 12, -18); scene.add(fill);
-    const red = new THREE.PointLight(0xff2940, 95, 70); red.position.set(-15, 13, 7); scene.add(red);
-    const redFar = new THREE.PointLight(0xff2940, 70, 85); redFar.position.set(18, 9, -30); scene.add(redFar);
-
-    const shape = new THREE.Shape();
-    const rad = 0.92;
-    for (let i=0;i<6;i++) {
-      const a = i * Math.PI / 3 + Math.PI / 6;
-      const x = Math.cos(a) * rad, y = Math.sin(a) * rad;
-      if (i === 0) shape.moveTo(x,y); else shape.lineTo(x,y);
-    }
-    shape.closePath();
-
-    // Unit-height extruded hexagon; world Y scaling creates the varied pillar depth.
-    const geometry = new THREE.ExtrudeGeometry(shape, {depth:1,bevelEnabled:false,curveSegments:1,steps:1});
-    geometry.rotateX(-Math.PI/2);
-
-    const mats = [
-      new THREE.MeshStandardMaterial({color:0x273137,metalness:.9,roughness:.25}),
-      new THREE.MeshStandardMaterial({color:0x354047,metalness:.84,roughness:.3}),
-      new THREE.MeshStandardMaterial({color:0x1d252a,metalness:.92,roughness:.22})
-    ];
-    const redMat = new THREE.MeshStandardMaterial({color:0xa80f21,metalness:.82,roughness:.22,emissive:0x2d0006,emissiveIntensity:.7});
-    const group = new THREE.Group();
-    group.position.set(0,-.4,-8);
-    scene.add(group);
-
-    const cells = [];
-    const cols = Math.ceil(innerWidth / 55) + 12;
-    const rows = 34;
-    const sx = 2.02, sz = 1.74;
-
-    for (let row=-rows; row<=rows; row++) {
-      for (let col=-Math.ceil(cols/2); col<=Math.ceil(cols/2); col++) {
-        const x = col*sx + ((row&1) ? sx/2 : 0);
-        const z = row*sz;
-        const h = 0.75 + Math.random()*3.55;
-        const m = new THREE.Mesh(geometry, Math.random()<.05 ? redMat : mats[Math.floor(Math.random()*mats.length)]);
-        m.position.set(x,0,z);
-        m.scale.y = h;
-        m.userData = {base:h,phase:Math.random()*Math.PI*2,speed:.24+.34*Math.random(),amp:.06+.14*Math.random()};
-        group.add(m);
-        cells.push(m);
-      }
-    }
-
-    // Sparse edge accents to make the geometry visibly read as a honeycomb field.
-    const edgeMat = new THREE.LineBasicMaterial({color:0xb9edf3,transparent:true,opacity:.42});
-    for (let i=0;i<Math.min(90,cells.length);i+=5) {
-      const eg = new THREE.EdgesGeometry(geometry, 20);
-      const line = new THREE.LineSegments(eg, edgeMat);
-      line.position.copy(cells[i].position);
-      line.scale.copy(cells[i].scale);
-      group.add(line);
-    }
-
-    let mx=0,my=0,tx=0,ty=0,scroll=0;
-    addEventListener("pointermove", e => {
-      tx=e.clientX/innerWidth-.5; ty=e.clientY/innerHeight-.5;
-    }, {passive:true});
-    addEventListener("scroll", () => scroll=scrollY||0, {passive:true});
-    addEventListener("resize", () => {
-      camera.aspect=innerWidth/innerHeight; camera.updateProjectionMatrix();
-      renderer.setSize(innerWidth,innerHeight);
+<script>
+(() => {
+  // Mobile menu
+  const menuBtn=document.getElementById('menuBtn');
+  const mobileMenu=document.getElementById('mobileMenu');
+  if(menuBtn&&mobileMenu){
+    menuBtn.addEventListener('click',()=>{
+      const open=mobileMenu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded',String(open));
     });
+    mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      mobileMenu.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false');
+    }));
+  }
 
-    const clock = new THREE.Clock();
-    function frame() {
-      requestAnimationFrame(frame);
-      const t=clock.getElapsedTime();
-      mx+=(tx-mx)*.045; my+=(ty-my)*.045;
+  // Scroll reveal
+  const els=[...document.querySelectorAll('.reveal')];
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})
+    },{threshold:.04});
+    els.forEach(e=>io.observe(e));
+  } else els.forEach(e=>e.classList.add('in'));
 
-      camera.position.x += (mx*4.8-camera.position.x)*.025;
-      camera.position.y += (10.5-my*2.0-camera.position.y)*.025;
-      camera.position.z += (30+Math.min(scroll*.006,12)-camera.position.z)*.014;
-      camera.lookAt(0,0,-11);
-
-      group.rotation.z += (mx*.045-group.rotation.z)*.03;
-      group.rotation.x += (-my*.025-group.rotation.x)*.03;
-      group.position.y += (scroll*.005-group.position.y)*.015;
-
-      cells.forEach(m => {
-        const u=m.userData;
-        m.scale.y = u.base + Math.sin(t*u.speed+u.phase)*u.amp + Math.sin(t*.18+u.phase)*.035;
-      });
-
-      red.position.x = -15 + mx*8;
-      redFar.position.x = 18 - mx*8;
-
-      renderer.render(scene,camera);
+  // Year dropdown
+  const year=document.getElementById('year');
+  if(year){
+    const now=new Date().getFullYear();
+    for(let y=now+1;y>=1980;y--){
+      const o=document.createElement('option');o.value=y;o.textContent=y;year.appendChild(o);
     }
-    frame();
-    const fallback = host.querySelector(".css-fallback");
-    if (fallback) fallback.style.opacity="0";
-  } catch(err) {
-    console.error("REVLINE 3D scene failed; CSS fallback remains active.", err);
   }
-}
 
-if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) initScene();
-
-// Prevent accidental empty submissions caused by browser autofill.
-document.querySelector("form")?.addEventListener("submit", e => {
-  const required = [...e.currentTarget.querySelectorAll("[required]")];
-  if (required.some(x => !x.value.trim())) {
-    e.preventDefault();
-    required.find(x => !x.value.trim())?.focus();
+  // Vehicle models
+  const MODELS={
+    Acura:['ILX','Integra','MDX','RDX','TLX','TSX'],
+    Audi:['A3','A4','A5','A6','A7','A8','Q3','Q4 e-tron','Q5','Q7','Q8','e-tron','RS3','RS5','RS6','RS7'],
+    BMW:['2 Series','3 Series','4 Series','5 Series','7 Series','8 Series','X1','X2','X3','X4','X5','X6','X7','XM','i4','i5','i7','iX','M2','M3','M4','M5','M8'],
+    Buick:['Encore','Encore GX','Enclave','Envision','LaCrosse'],
+    Cadillac:['CT4','CT5','Escalade','Lyriq','XT4','XT5','XT6','Vistiq'],
+    Chevrolet:['Bolt','Camaro','Colorado','Corvette','Equinox','Malibu','Silverado 1500','Silverado 2500HD','Silverado 3500HD','Suburban','Tahoe','Trailblazer','Traverse','Trax'],
+    Chrysler:['300','Pacifica','Voyager'],
+    Dodge:['Challenger','Charger','Durango','Hornet','Ram ProMaster'],
+    Ford:['Bronco','Bronco Sport','Edge','Escape','Expedition','Explorer','F-150','F-250','F-350','F-450','Maverick','Mustang','Ranger','Transit'],
+    Genesis:['G70','G80','G90','GV60','GV70','GV80'],
+    GMC:['Acadia','Canyon','Hummer EV','Sierra 1500','Sierra 2500HD','Sierra 3500HD','Terrain','Yukon','Yukon XL'],
+    Honda:['Accord','Civic','CR-V','HR-V','Odyssey','Passport','Pilot','Ridgeline'],
+    Hyundai:['Elantra','Ioniq 5','Ioniq 6','Kona','Palisade','Santa Cruz','Santa Fe','Sonata','Tucson'],
+    INFINITI:['Q50','QX50','QX55','QX60','QX80'],
+    Jaguar:['F-Pace','F-Type','I-Pace','XE','XF','XJ'],
+    Jeep:['Cherokee','Compass','Gladiator','Grand Cherokee','Grand Wagoneer','Renegade','Wagoneer','Wrangler'],
+    Kia:['Carnival','EV6','Forte','K4','K5','Niro','Seltos','Sorento','Soul','Sportage','Telluride'],
+    'Land Rover':['Defender','Discovery','Discovery Sport','Range Rover','Range Rover Sport','Range Rover Velar','Range Rover Evoque'],
+    Lexus:['ES','GX','IS','LC','LS','LX','NX','RC','RX','RZ','UX'],
+    Lincoln:['Aviator','Corsair','Nautilus','Navigator'],
+    Lucid:['Air'],
+    Mazda:['CX-30','CX-5','CX-50','CX-90','Mazda3','Mazda6','MX-5 Miata'],
+    'Mercedes-Benz':['A-Class','C-Class','CLA','CLS','E-Class','G-Class','GLA','GLB','GLC','GLE','GLS','S-Class','SL','Sprinter','AMG GT'],
+    Mitsubishi:['Eclipse Cross','Mirage','Outlander','Outlander Sport'],
+    Nissan:['Altima','Armada','Frontier','Kicks','Leaf','Maxima','Murano','Pathfinder','Rogue','Sentra','Titan','Versa','Z'],
+    Polestar:['1','2','3','4','5'],
+    Polaris:['RZR','Ranger','General','Sportsman','Scrambler'],
+    Porsche:['718 Boxster','718 Cayman','911','Cayenne','Macan','Panamera','Taycan'],
+    RAM:['1500','2500','3500','ProMaster','ProMaster City'],
+    Rivian:['R1T','R1S'],
+    Subaru:['Ascent','BRZ','Crosstrek','Forester','Impreza','Legacy','Outback','WRX'],
+    Tesla:['Model 3','Model S','Model X','Model Y','Cybertruck'],
+    Toyota:['4Runner','Camry','Corolla','Crown','GR86','GR Corolla','Grand Highlander','Highlander','Land Cruiser','Prius','RAV4','Sequoia','Sienna','Tacoma','Tundra'],
+    Volkswagen:['Atlas','Atlas Cross Sport','Golf','GTI','ID.4','ID.7','Jetta','Taos','Tiguan','Touareg'],
+    Volvo:['S60','S90','V60','V90','XC40','XC60','XC90'],
+    'Can-Am':['Maverick','Maverick X3','Defender','Commander','Outlander','Renegade'],
+    Freightliner:['Cascadia','M2','Custom Chassis'],
+    'Volvo Trucks':['VNL','VNR','VHD','VAH']
+  };
+  const make=document.getElementById('make'), model=document.getElementById('model');
+  const makeManual=document.getElementById('makeManualWrap'), modelManual=document.getElementById('modelManualWrap');
+  const city=document.getElementById('city'), cityManual=document.getElementById('cityManualWrap');
+  function resetModel(){
+    const val=make.value, list=MODELS[val]||[];
+    model.innerHTML='';
+    const first=document.createElement('option');
+    first.value=''; first.textContent=list.length?'Select model':'Not listed — enter model manually';
+    model.appendChild(first);
+    list.forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;model.appendChild(o)});
+    model.disabled=!list.length;
+    const other=val==='Other / Not listed';
+    makeManual.style.display=other?'grid':'none';
+    modelManual.style.display=other||!list.length?'grid':'none';
+    if(!other && list.length) modelManual.style.display='none';
   }
-});
+  make?.addEventListener('change',resetModel);
+  model?.addEventListener('change',()=>{modelManual.style.display=(model.value===''&&model.options.length<=1)?'grid':'none';});
+  city?.addEventListener('change',()=>{cityManual.style.display=city.value==='Other / Not listed'?'grid':'none';});
+  resetModel();
+
+  // Form safety: don't submit if a model is unknown but no manual model entered.
+  const form=document.querySelector('form');
+  form?.addEventListener('submit',e=>{
+    if(make.value==='Other / Not listed' && !document.getElementById('makeManual').value.trim()){
+      e.preventDefault(); document.getElementById('makeManual').focus(); return;
+    }
+    if((!model.value || model.disabled) && !document.getElementById('modelManual').value.trim()){
+      e.preventDefault(); document.getElementById('modelManual').focus(); return;
+    }
+  });
+
+  // Three.js fixed background, fully procedural. CSS image remains as fallback.
+  function init3D(){
+    const host=document.getElementById('scene');
+    if(!host||!window.THREE) return;
+    try{
+      const THREE=window.THREE, mobile=innerWidth<820;
+      const scene=new THREE.Scene();
+      scene.fog=new THREE.Fog(0x0a0d10,28,105);
+      const camera=new THREE.PerspectiveCamera(56,innerWidth/innerHeight,.1,180);
+      camera.position.set(0,12,30);
+      const renderer=new THREE.WebGLRenderer({antialias:!mobile,alpha:true,powerPreference:'high-performance'});
+      renderer.setPixelRatio(Math.min(devicePixelRatio,mobile?1.25:1.6));
+      renderer.setSize(innerWidth,innerHeight);
+      renderer.outputColorSpace=THREE.SRGBColorSpace;
+      renderer.toneMapping=THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure=1.22;
+      host.appendChild(renderer.domElement);
+
+      scene.add(new THREE.HemisphereLight(0xf4fbff,0x11161a,2.0));
+      const key=new THREE.DirectionalLight(0xffffff,3.0); key.position.set(-22,30,18); scene.add(key);
+      const cool=new THREE.DirectionalLight(0x9cebf3,2.2); cool.position.set(22,12,-20); scene.add(cool);
+      const red=new THREE.PointLight(0xff2742,85,70); red.position.set(-12,18,10); scene.add(red);
+      const red2=new THREE.PointLight(0xff2742,70,80); red2.position.set(18,12,-30); scene.add(red2);
+
+      const shape=new THREE.Shape(), rad=.92;
+      for(let i=0;i<6;i++){const a=i*Math.PI/3+Math.PI/6,x=Math.cos(a)*rad,y=Math.sin(a)*rad;i?shape.lineTo(x,y):shape.moveTo(x,y)}
+      shape.closePath();
+      const geometry=new THREE.ExtrudeGeometry(shape,{depth:1,bevelEnabled:false,curveSegments:1,steps:1});
+      geometry.rotateX(-Math.PI/2);
+
+      const mats=[
+        new THREE.MeshStandardMaterial({color:0x2a333a,metalness:.9,roughness:.24}),
+        new THREE.MeshStandardMaterial({color:0x3a464d,metalness:.85,roughness:.30}),
+        new THREE.MeshStandardMaterial({color:0x20282e,metalness:.92,roughness:.22})
+      ];
+      const redMat=new THREE.MeshStandardMaterial({color:0xa50f22,metalness:.82,roughness:.22,emissive:0x310009,emissiveIntensity:.65});
+      const group=new THREE.Group(); group.position.set(0,-1,-7); scene.add(group);
+      const cells=[], cols=Math.ceil(innerWidth/48)+10, rows=34;
+      for(let r=-rows;r<=rows;r++){
+        for(let c=-Math.ceil(cols/2);c<=Math.ceil(cols/2);c++){
+          const h=.9+Math.random()*4.4;
+          const mesh=new THREE.Mesh(geometry,Math.random()<.045?redMat:mats[(Math.random()*mats.length)|0]);
+          mesh.position.set(c*2.0+((r&1)?1:0),0,r*1.72);
+          mesh.scale.y=h;
+          mesh.userData={base:h,phase:Math.random()*6.28,speed:.22+.34*Math.random(),amp:.08+.16*Math.random()};
+          group.add(mesh); cells.push(mesh);
+        }
+      }
+
+      // Sparse edge highlights for readable geometry.
+      if(!mobile){
+        const eg=new THREE.EdgesGeometry(geometry,20);
+        const edgeMat=new THREE.LineBasicMaterial({color:0xc8f8fc,transparent:true,opacity:.22});
+        for(let i=0;i<Math.min(70,cells.length);i+=6){
+          const line=new THREE.LineSegments(eg,edgeMat);
+          line.position.copy(cells[i].position); line.scale.copy(cells[i].scale); group.add(line);
+        }
+      }
+
+      let tx=0,ty=0,mx=0,my=0,scroll=0;
+      addEventListener('pointermove',e=>{tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5},{passive:true});
+      addEventListener('scroll',()=>scroll=scrollY||0,{passive:true});
+      addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
+      const clock=new THREE.Clock();
+      function frame(){
+        requestAnimationFrame(frame);
+        const t=clock.getElapsedTime();
+        mx+=(tx-mx)*.045; my+=(ty-my)*.045;
+        camera.position.x+=(mx*5-camera.position.x)*.025;
+        camera.position.y+=(11.5-my*2.0-camera.position.y)*.025;
+        camera.position.z+=(28+Math.min(scroll*.0045,10)-camera.position.z)*.012;
+        camera.lookAt(0,0,-13);
+        group.rotation.z+=(mx*.035-group.rotation.z)*.03;
+        group.rotation.x+=(-my*.02-group.rotation.x)*.03;
+        group.position.y+=((scroll*.0025)-group.position.y)*.018;
+        for(const m of cells){
+          const u=m.userData;
+          m.scale.y=u.base+Math.sin(t * u.speed + u.phase) * 0.12 + Math.sin(t * 0.17 + u.phase) * 0.035;
+        }
+        red.position.x=-12+mx*8; red2.position.x=18-mx*8;
+        renderer.render(scene,camera);
+      }
+      frame();
+      const fb=host.querySelector('.scene-fallback'); if(fb) fb.style.opacity='.1';
+    }catch(err){console.error('REVLINE 3D fallback active',err)}
+  }
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    if(window.THREE) init3D(); else window.addEventListener('load',()=>{if(window.THREE) init3D()},{once:true});
+  }
+
+  // Ensure broken media never produces an empty tile.
+  document.querySelectorAll('img').forEach(img=>{
+    img.addEventListener('error',()=>{
+      img.style.opacity='.25';
+      img.style.filter='grayscale(1)';
+    },{once:true});
+  });
 })();
 </script>
-</body></html>
+</body>
+</html>
