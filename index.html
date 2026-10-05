@@ -8,6 +8,7 @@
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <link rel="canonical" href="https://revlineutah.com/">
 <link rel="icon" href="./revline-r.webp" type="image/webp">
+<link rel="preload" as="image" href="./media/site-bg-reference.png">
 <title>REVLINE Mobile Diagnostics & Repair | Utah</title>
 <style>
 :root{
@@ -24,7 +25,7 @@ a{color:inherit;text-decoration:none}
 button,input,select,textarea{font:inherit}
 img,video{display:block;max-width:100%}
 #site-bg,#webgl,#shade{position:fixed;inset:0;pointer-events:none}
-#site-bg{z-index:0;background:#0a0e12 url('./media/site-bg-reference.png') center center/cover no-repeat;transform:scale(1.025)}
+#site-bg{z-index:0;background-color:#0a0e12;background-image:url('./media/site-bg-reference.png');background-position:center;background-size:cover;background-repeat:no-repeat;transform:scale(1.025);will-change:transform}
 #shade{z-index:1;background:linear-gradient(180deg,rgba(3,5,7,.04),rgba(3,5,7,.12) 48%,rgba(3,5,7,.22) 100%)}
 #webgl{z-index:2;opacity:0}
 #webgl canvas{width:100%!important;height:100%!important;display:block}
@@ -167,6 +168,16 @@ make.addEventListener('change',resetModels);model.addEventListener('change',()=>
 const menuBtn=$('menuBtn'), mobilePanel=$('mobilePanel');menuBtn.addEventListener('click',()=>{const open=mobilePanel.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open?'true':'false')});mobilePanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobilePanel.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));
 const lb=$('lightbox'),lbi=$('lightboxImage');document.querySelectorAll('.gallery-card img').forEach(img=>img.addEventListener('click',()=>{lbi.src=img.src;lbi.alt=img.alt;lb.classList.add('open');document.body.classList.add('lock')}));$('lightboxClose').addEventListener('click',()=>{lb.classList.remove('open');document.body.classList.remove('lock')});lb.addEventListener('click',e=>{if(e.target===lb){lb.classList.remove('open');document.body.classList.remove('lock')}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){lb.classList.remove('open');$('successModal').classList.remove('open');document.body.classList.remove('lock')}});
 const form=$('serviceForm'),status=$('formStatus'),success=$('successModal');form.addEventListener('submit',async e=>{e.preventDefault();status.textContent='Sending your request…';status.className='status';const submit=form.querySelector('button[type="submit"]');submit.disabled=true;try{const r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});if(!r.ok)throw new Error('Request failed');status.textContent='Request sent successfully.';status.className='status ok';form.reset();resetModels();cityManual.style.display='none';modelManual.style.display='none';success.classList.add('open');document.body.classList.add('lock')}catch(err){status.textContent='Could not send automatically. Please call (224) 345-8151.';status.className='status err'}finally{submit.disabled=false}});$('successClose').addEventListener('click',()=>{success.classList.remove('open');document.body.classList.remove('lock')});
+
+// Robust local-media fallback: a missing photo never leaves a broken image icon.
+document.querySelectorAll('img').forEach((img)=>{
+  img.addEventListener('error',()=>{
+    img.classList.add('media-fallback');
+    img.removeAttribute('src');
+    img.alt = img.alt || 'REVLINE media';
+  },{once:true});
+});
+
 const reveal=document.querySelectorAll('.reveal');const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});reveal.forEach(x=>io.observe(x));
 
 function init3D(){
