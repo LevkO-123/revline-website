@@ -1,4 +1,4 @@
-REVLINE production one-page build
-Upload the CONTENTS of this folder to the ROOT of the GitHub repo. Do not upload the zip itself.
-The site is static and uses one index.html plus local /media assets. Three.js is procedural; if the CDN fails, the CSS geometry fallback remains visible.
-Service requests post to FormSubmit -> revlineutah@gmail.com and redirect to /thank-you.html. Customer auto-response is requested when an email is provided.
+REVLINE FINAL V31
+
+Upload the contents of this folder to the root of the GitHub repository.
+This build is a static one-page website. The 3D background is procedural Three.js; no 3D textures are required. Local media is stored in /media. Request forms post to FormSubmit and the thank-you page is /thank-you.html.
