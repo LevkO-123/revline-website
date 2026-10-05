@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Illustration of vehicle module programming">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17232b"/><stop offset=".58" stop-color="#0b1116"/><stop offset="1" stop-color="#201217"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#e33342" stop-opacity=".24"/><stop offset="1" stop-color="#e33342" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M54 0H0V54" fill="none" stroke="#d6e2e7" stroke-opacity=".06"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="url(#bg)"/><rect width="1200" height="900" fill="url(#grid)"/>
+<ellipse cx="855" cy="330" rx="520" ry="400" fill="url(#glow)"/>
+<path d="M0 741 1200 502M0 781 1200 542" stroke="#d5e0e4" stroke-opacity=".055" stroke-width="2"/>
+<path d="M80 130h1040" stroke="#ef3340" stroke-width="4" stroke-opacity=".7"/>
+<text x="82" y="105" fill="#9fb1b9" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="6">REVLINE  /  PROGRAMMING AND CODING</text>
+<g stroke="#e9f0f2" stroke-width="7" stroke-linejoin="round">
+<path d="M168 228h537v343H168z" rx="22" fill="#111a21"/><path d="M130 591h614l-48 43H181Z" fill="#283840"/>
+<rect x="207" y="270" width="459" height="255" rx="13" fill="#081116" stroke="#526c77"/>
+<path d="M248 319h193M248 359h307M248 399h244M248 439h286" stroke="#67d9ee" stroke-width="8"/>
+<rect x="798" y="310" width="236" height="236" rx="30" fill="#18252d" stroke="#ef3340"/>
+<rect x="853" y="366" width="126" height="126" rx="18" fill="#091116" stroke="#67d9ee"/>
+<path d="M878 430h76M916 392v76" stroke="#eef3f4" stroke-width="8"/>
+<path d="M768 427h30M1035 427h53M858 277v33M976 277v33M858 547v33M976 547v33" fill="none" stroke="#ef3340"/>
+</g><path d="M1034 428h83v-94h52M1034 462h84v93h52" fill="none" stroke="#67d9ee" stroke-width="7"/>
+<text x="82" y="825" fill="#f0f4f5" font-family="Arial,sans-serif" font-size="21" font-weight="800" letter-spacing="5">ILLUSTRATIVE SERVICE ART</text>
+<text x="82" y="861" fill="#91a1a8" font-family="Arial,sans-serif" font-size="16" font-weight="600" letter-spacing="3">MOBILE DIAGNOSTICS &amp; REPAIR · UTAH</text>
+</svg>

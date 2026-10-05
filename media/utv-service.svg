@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Illustration of UTV service">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17232b"/><stop offset=".58" stop-color="#0b1116"/><stop offset="1" stop-color="#201217"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#e33342" stop-opacity=".24"/><stop offset="1" stop-color="#e33342" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M54 0H0V54" fill="none" stroke="#d6e2e7" stroke-opacity=".06"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="url(#bg)"/><rect width="1200" height="900" fill="url(#grid)"/>
+<ellipse cx="855" cy="330" rx="520" ry="400" fill="url(#glow)"/>
+<path d="M0 741 1200 502M0 781 1200 542" stroke="#d5e0e4" stroke-opacity=".055" stroke-width="2"/>
+<path d="M80 130h1040" stroke="#ef3340" stroke-width="4" stroke-opacity=".7"/>
+<text x="82" y="105" fill="#9fb1b9" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="6">REVLINE  /  UTV AND OFF-ROAD</text>
+<g fill="#111b22" stroke="#eaf1f3" stroke-width="7" stroke-linejoin="round">
+<path d="M158 566 211 441q17-39 50-45l91-17 99-155q17-27 49-27h230q31 0 48 28l80 139 137 28q46 10 61 50l36 124v57H158Z"/>
+<path d="m380 376 95-149h108v150Zm240 0V227h101q17 0 27 18l70 131Z" fill="#0a1217"/>
+<path d="M350 386v-89M510 386v-91M659 386v-91M819 386v-82" fill="none" stroke="#ef3340"/>
+<circle cx="332" cy="608" r="85" fill="#070d11"/><circle cx="332" cy="608" r="38" fill="#24343b"/>
+<circle cx="884" cy="608" r="85" fill="#070d11"/><circle cx="884" cy="608" r="38" fill="#24343b"/>
+<path d="M175 545h921" fill="none" opacity=".45"/>
+</g><path d="M170 678h942" stroke="#ef3340" stroke-width="7"/>
+<text x="82" y="825" fill="#f0f4f5" font-family="Arial,sans-serif" font-size="21" font-weight="800" letter-spacing="5">ILLUSTRATIVE SERVICE ART</text>
+<text x="82" y="861" fill="#91a1a8" font-family="Arial,sans-serif" font-size="16" font-weight="600" letter-spacing="3">MOBILE DIAGNOSTICS &amp; REPAIR · UTAH</text>
+</svg>

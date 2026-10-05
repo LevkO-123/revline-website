@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Illustration of turbocharger repair">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17232b"/><stop offset=".58" stop-color="#0b1116"/><stop offset="1" stop-color="#201217"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#e33342" stop-opacity=".24"/><stop offset="1" stop-color="#e33342" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M54 0H0V54" fill="none" stroke="#d6e2e7" stroke-opacity=".06"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="url(#bg)"/><rect width="1200" height="900" fill="url(#grid)"/>
+<ellipse cx="855" cy="330" rx="520" ry="400" fill="url(#glow)"/>
+<path d="M0 741 1200 502M0 781 1200 542" stroke="#d5e0e4" stroke-opacity=".055" stroke-width="2"/>
+<path d="M80 130h1040" stroke="#ef3340" stroke-width="4" stroke-opacity=".7"/>
+<text x="82" y="105" fill="#9fb1b9" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="6">REVLINE  /  TURBOCHARGER SERVICE</text>
+<g fill="#111b22" stroke="#e8eff2" stroke-width="8" stroke-linejoin="round">
+<path d="M433 250q-10-77 72-98l155-38q75-18 99 50l46 131-87 50-174-15Z"/>
+<path d="M406 322 248 371q-67 21-54 93l22 118q9 49 59 42l157-25 143-92-41-185Z"/>
+<circle cx="362" cy="484" r="127" fill="#091115" stroke="#67d9ee" stroke-width="13"/>
+<circle cx="362" cy="484" r="68" fill="#17272f" stroke="#ef3340" stroke-width="10"/>
+<path d="M362 418v66l47 38M535 284l-98 83M713 239l151-57 61 58-135 93" fill="none"/>
+<path d="M817 346h126v160H817" fill="#17242b"/>
+<path d="M244 587h-89v72h196M906 507h113v88h-85" fill="none"/>
+</g><path d="M1023 229c66 42 101 94 116 156M169 280c-72 46-110 108-124 184" fill="none" stroke="#ef3340" stroke-width="10"/>
+<text x="82" y="825" fill="#f0f4f5" font-family="Arial,sans-serif" font-size="21" font-weight="800" letter-spacing="5">ILLUSTRATIVE SERVICE ART</text>
+<text x="82" y="861" fill="#91a1a8" font-family="Arial,sans-serif" font-size="16" font-weight="600" letter-spacing="3">MOBILE DIAGNOSTICS &amp; REPAIR · UTAH</text>
+</svg>

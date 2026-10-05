@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Illustration of European vehicle service">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17232b"/><stop offset=".58" stop-color="#0b1116"/><stop offset="1" stop-color="#201217"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#e33342" stop-opacity=".24"/><stop offset="1" stop-color="#e33342" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M54 0H0V54" fill="none" stroke="#d6e2e7" stroke-opacity=".06"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="url(#bg)"/><rect width="1200" height="900" fill="url(#grid)"/>
+<ellipse cx="855" cy="330" rx="520" ry="400" fill="url(#glow)"/>
+<path d="M0 741 1200 502M0 781 1200 542" stroke="#d5e0e4" stroke-opacity=".055" stroke-width="2"/>
+<path d="M80 130h1040" stroke="#ef3340" stroke-width="4" stroke-opacity=".7"/>
+<text x="82" y="105" fill="#9fb1b9" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="6">REVLINE  /  EUROPEAN VEHICLE REPAIR</text>
+<g fill="#111a21" stroke="#eaf0f2" stroke-width="7" stroke-linejoin="round">
+<path d="M150 563 210 417q12-30 46-42l164-48 119-120q23-22 61-22h216q37 0 63 29l89 105 106 31q43 13 55 52l28 109v59H150Z"/>
+<path d="m440 326 99-99q17-17 47-17h120v114H440Zm300-116h68q25 0 42 19l78 95H740Z" fill="#17242c"/>
+<path d="M177 451h907" fill="none" opacity=".55"/>
+<circle cx="347" cy="603" r="70" fill="#091115"/><circle cx="347" cy="603" r="27" fill="#20313a"/>
+<circle cx="892" cy="603" r="70" fill="#091115"/><circle cx="892" cy="603" r="27" fill="#20313a"/>
+<path d="M1020 475h46v46h-46M195 485h38v34h-38" fill="#ef3340" stroke="none"/>
+</g><path d="M225 652h785" stroke="#67d9ee" stroke-width="4" opacity=".65"/>
+<text x="82" y="825" fill="#f0f4f5" font-family="Arial,sans-serif" font-size="21" font-weight="800" letter-spacing="5">ILLUSTRATIVE SERVICE ART</text>
+<text x="82" y="861" fill="#91a1a8" font-family="Arial,sans-serif" font-size="16" font-weight="600" letter-spacing="3">MOBILE DIAGNOSTICS &amp; REPAIR · UTAH</text>
+</svg>

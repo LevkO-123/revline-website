@@ -1,4 +1,5 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
       "source": "/(.*)",
@@ -21,7 +22,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net; connect-src 'self' https://formsubmit.co; font-src 'self' data:; frame-src https://www.google.com https://maps.google.com; form-action 'self' https://formsubmit.co; base-uri 'self'; frame-ancestors 'self'"
+          "value": "default-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; style-src 'self'; script-src 'self'; form-action 'self' https://formsubmit.co; frame-src https://www.google.com https://maps.google.com; base-uri 'self'; frame-ancestors 'self'"
         }
       ]
     }

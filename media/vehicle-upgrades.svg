@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Illustration of vehicle upgrades">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17232b"/><stop offset=".58" stop-color="#0b1116"/><stop offset="1" stop-color="#201217"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#e33342" stop-opacity=".24"/><stop offset="1" stop-color="#e33342" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M54 0H0V54" fill="none" stroke="#d6e2e7" stroke-opacity=".06"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="url(#bg)"/><rect width="1200" height="900" fill="url(#grid)"/>
+<ellipse cx="855" cy="330" rx="520" ry="400" fill="url(#glow)"/>
+<path d="M0 741 1200 502M0 781 1200 542" stroke="#d5e0e4" stroke-opacity=".055" stroke-width="2"/>
+<path d="M80 130h1040" stroke="#ef3340" stroke-width="4" stroke-opacity=".7"/>
+<text x="82" y="105" fill="#9fb1b9" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="6">REVLINE  /  ACCESSORIES AND UPGRADES</text>
+<g fill="none" stroke="#eaf1f3" stroke-width="7" stroke-linejoin="round">
+<path d="M186 522 247 390q16-34 58-44l134-30 97-111q20-22 53-22h244q37 0 61 29l88 105 107 30q48 13 58 55l24 120v49H186Z" fill="#111b21"/>
+<path d="m465 316 89-99q15-16 42-16h80v115H465Zm253-115h112q21 0 37 19l68 96H718Z" fill="#0a1216"/>
+<circle cx="349" cy="574" r="95" fill="#081014"/><circle cx="349" cy="574" r="49" fill="#18252c" stroke="#ef3340"/><circle cx="349" cy="574" r="17" fill="#67d9ee"/>
+<circle cx="899" cy="574" r="95" fill="#081014"/><circle cx="899" cy="574" r="49" fill="#18252c" stroke="#ef3340"/><circle cx="899" cy="574" r="17" fill="#67d9ee"/>
+<path d="M185 670h904M235 706h813" opacity=".35"/>
+</g><path d="M191 492h897" stroke="#ef3340" stroke-width="6"/>
+<text x="82" y="825" fill="#f0f4f5" font-family="Arial,sans-serif" font-size="21" font-weight="800" letter-spacing="5">ILLUSTRATIVE SERVICE ART</text>
+<text x="82" y="861" fill="#91a1a8" font-family="Arial,sans-serif" font-size="16" font-weight="600" letter-spacing="3">MOBILE DIAGNOSTICS &amp; REPAIR · UTAH</text>
+</svg>

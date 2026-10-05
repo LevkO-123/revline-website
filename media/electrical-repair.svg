@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Illustration of automotive electrical troubleshooting">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17232b"/><stop offset=".58" stop-color="#0b1116"/><stop offset="1" stop-color="#201217"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#e33342" stop-opacity=".24"/><stop offset="1" stop-color="#e33342" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M54 0H0V54" fill="none" stroke="#d6e2e7" stroke-opacity=".06"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="url(#bg)"/><rect width="1200" height="900" fill="url(#grid)"/>
+<ellipse cx="855" cy="330" rx="520" ry="400" fill="url(#glow)"/>
+<path d="M0 741 1200 502M0 781 1200 542" stroke="#d5e0e4" stroke-opacity=".055" stroke-width="2"/>
+<path d="M80 130h1040" stroke="#ef3340" stroke-width="4" stroke-opacity=".7"/>
+<text x="82" y="105" fill="#9fb1b9" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="6">REVLINE  /  ELECTRICAL REPAIR</text>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<rect x="195" y="190" width="420" height="445" rx="28" fill="#111b22" stroke="#eaf1f3" stroke-width="7"/>
+<path d="M251 258h306M251 324h180M251 555h295" stroke="#38505a" stroke-width="7"/>
+<rect x="253" y="360" width="115" height="126" rx="15" fill="#0a1217" stroke="#67d9ee" stroke-width="7"/>
+<path d="M291 385v35l-17 26h61l-18 26" stroke="#ef3340" stroke-width="10"/>
+<path d="M369 424h95v-84h128M369 455h79v83h108M615 290h144v101h115M615 540h145v-82h110" stroke="#ef3340" stroke-width="8"/>
+<circle cx="767" cy="391" r="18" fill="#67d9ee"/><circle cx="767" cy="458" r="18" fill="#67d9ee"/>
+<rect x="882" y="304" width="151" height="204" rx="18" fill="#15222a" stroke="#dfe9ec" stroke-width="7"/>
+<path d="M919 350h77M919 385h77M919 420h77M919 455h52" stroke="#68828d" stroke-width="8"/>
+</g>
+<text x="82" y="825" fill="#f0f4f5" font-family="Arial,sans-serif" font-size="21" font-weight="800" letter-spacing="5">ILLUSTRATIVE SERVICE ART</text>
+<text x="82" y="861" fill="#91a1a8" font-family="Arial,sans-serif" font-size="16" font-weight="600" letter-spacing="3">MOBILE DIAGNOSTICS &amp; REPAIR · UTAH</text>
+</svg>
