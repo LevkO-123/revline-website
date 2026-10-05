@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Illustration of UTV drivetrain service">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17232b"/><stop offset=".58" stop-color="#0b1116"/><stop offset="1" stop-color="#201217"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#e33342" stop-opacity=".24"/><stop offset="1" stop-color="#e33342" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M54 0H0V54" fill="none" stroke="#d6e2e7" stroke-opacity=".06"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="url(#bg)"/><rect width="1200" height="900" fill="url(#grid)"/>
+<ellipse cx="855" cy="330" rx="520" ry="400" fill="url(#glow)"/>
+<path d="M0 741 1200 502M0 781 1200 542" stroke="#d5e0e4" stroke-opacity=".055" stroke-width="2"/>
+<path d="M80 130h1040" stroke="#ef3340" stroke-width="4" stroke-opacity=".7"/>
+<text x="82" y="105" fill="#9fb1b9" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="6">REVLINE  /  UTV DRIVETRAIN</text>
+<g fill="none" stroke="#eaf0f2" stroke-linejoin="round">
+<circle cx="398" cy="454" r="219" stroke-width="18" fill="#111b21"/>
+<circle cx="398" cy="454" r="148" stroke="#607985" stroke-width="12"/>
+<circle cx="398" cy="454" r="61" stroke="#ef3340" stroke-width="15"/>
+<g stroke-width="18" stroke="#67d9ee">
+<path d="M398 235v71M398 602v71M179 454h71M546 454h71M243 299l50 50M503 559l50 50M243 609l50-50M503 349l50-50"/>
+</g>
+<path d="M458 431h236l78-83h199M458 477h226l72 79h215" stroke-width="19" stroke="#d9e4e8"/>
+<circle cx="739" cy="348" r="38" stroke="#ef3340" stroke-width="12"/><circle cx="756" cy="557" r="38" stroke="#ef3340" stroke-width="12"/>
+<rect x="895" y="300" width="142" height="292" rx="25" fill="#121c22" stroke-width="9"/>
+</g><path d="M893 342h-92M1037 548h74" stroke="#67d9ee" stroke-width="7"/>
+<text x="82" y="825" fill="#f0f4f5" font-family="Arial,sans-serif" font-size="21" font-weight="800" letter-spacing="5">ILLUSTRATIVE SERVICE ART</text>
+<text x="82" y="861" fill="#91a1a8" font-family="Arial,sans-serif" font-size="16" font-weight="600" letter-spacing="3">MOBILE DIAGNOSTICS &amp; REPAIR · UTAH</text>
+</svg>

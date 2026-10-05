@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Illustration of automotive diagnostic equipment">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17232b"/><stop offset=".58" stop-color="#0b1116"/><stop offset="1" stop-color="#201217"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#e33342" stop-opacity=".24"/><stop offset="1" stop-color="#e33342" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M54 0H0V54" fill="none" stroke="#d6e2e7" stroke-opacity=".06"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="url(#bg)"/><rect width="1200" height="900" fill="url(#grid)"/>
+<ellipse cx="855" cy="330" rx="520" ry="400" fill="url(#glow)"/>
+<path d="M0 741 1200 502M0 781 1200 542" stroke="#d5e0e4" stroke-opacity=".055" stroke-width="2"/>
+<path d="M80 130h1040" stroke="#ef3340" stroke-width="4" stroke-opacity=".7"/>
+<text x="82" y="105" fill="#9fb1b9" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="6">REVLINE  /  DIAGNOSTICS</text>
+<g stroke="#eaf1f3" stroke-width="7" stroke-linejoin="round">
+<rect x="205" y="190" width="515" height="430" rx="38" fill="#111b22"/>
+<rect x="246" y="232" width="433" height="336" rx="17" fill="#091116" stroke="#5b7682"/>
+<path d="M290 485h351" fill="none" stroke="#31434b"/>
+<path d="M312 453v-44h50v44M393 453v-111h50v111M474 453v-73h50v73M555 453v-142h50v142" fill="#172c34" stroke="#67d9ee"/>
+<path d="M312 293h210" fill="none" stroke="#ef3340" stroke-width="10"/>
+<path d="M720 380h143l65-61h125l78 61v93H720Z" fill="#121e25"/>
+<circle cx="832" cy="477" r="53" fill="#091116"/><circle cx="1049" cy="477" r="53" fill="#091116"/>
+</g><path d="M661 590c54 76 95 96 153 86" fill="none" stroke="#ef3340" stroke-width="8"/><circle cx="818" cy="676" r="17" fill="#67d9ee"/>
+<text x="82" y="825" fill="#f0f4f5" font-family="Arial,sans-serif" font-size="21" font-weight="800" letter-spacing="5">ILLUSTRATIVE SERVICE ART</text>
+<text x="82" y="861" fill="#91a1a8" font-family="Arial,sans-serif" font-size="16" font-weight="600" letter-spacing="3">MOBILE DIAGNOSTICS &amp; REPAIR · UTAH</text>
+</svg>

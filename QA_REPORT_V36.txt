@@ -1,19 +1,18 @@
 REVLINE production preparation audit
 
 Completed:
-- Replaced references to missing backgrounds, posters, photos, and videos with local SVG placeholders or documented upload slots.
+- Replaced missing binary media with original local SVG illustrations; no manual media upload is required for the site to render.
 - Consolidated page behavior into /script.js and linked /style.css.
 - Put the fixed background and shade below the header, page sections, footer, and dialogs.
 - Removed the disconnected Three.js loader. The SVG background fills the viewport and does not depend on WebGL or a CDN.
-- Preserved native FormSubmit delivery to revlineutah@gmail.com and configured the existing thank-you page. The email input uses the FormSubmit-recognized name email.
-- Added the exact media upload inventory in MEDIA_UPLOADS.md.
+- Preserved native FormSubmit delivery to revlineutah@gmail.com and configured the thank-you page. The email field uses the FormSubmit-recognized name email.
+- Documented the included media in MEDIA_UPLOADS.md.
 
 Validation performed:
-- Static local-reference scan of index.html and style.css against the repository file tree.
-- Checked that executable inline scripts and missing-media source URLs are no longer present.
-- Checked Vercel configuration JSON syntax.
+- Static local-reference scan of HTML, CSS, JavaScript, and the web manifest against the repository file tree.
+- Checked that there are no unresolved media source URLs, duplicate HTML IDs, or executable inline scripts.
+- Checked JavaScript syntax, JSON-LD parsing, and Vercel JSON syntax.
 
 Remaining:
-- Real photos and two optional MP4 clips are listed in MEDIA_UPLOADS.md.
+- Real customer photos and video are optional enhancements; the included illustrations are clearly labeled and need no manual upload.
 - FormSubmit may require its standard first-use email confirmation for the configured recipient.
-- These changes are prepared on a feature branch; no production deployment was triggered.

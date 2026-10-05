@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Illustration of RV electrical service">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17232b"/><stop offset=".58" stop-color="#0b1116"/><stop offset="1" stop-color="#201217"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#e33342" stop-opacity=".24"/><stop offset="1" stop-color="#e33342" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M54 0H0V54" fill="none" stroke="#d6e2e7" stroke-opacity=".06"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="url(#bg)"/><rect width="1200" height="900" fill="url(#grid)"/>
+<ellipse cx="855" cy="330" rx="520" ry="400" fill="url(#glow)"/>
+<path d="M0 741 1200 502M0 781 1200 542" stroke="#d5e0e4" stroke-opacity=".055" stroke-width="2"/>
+<path d="M80 130h1040" stroke="#ef3340" stroke-width="4" stroke-opacity=".7"/>
+<text x="82" y="105" fill="#9fb1b9" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="6">REVLINE  /  RV ELECTRICAL</text>
+<g fill="#121d24" stroke="#eaf1f3" stroke-width="7" stroke-linejoin="round">
+<path d="M152 326q0-43 42-43h698l161 159v178H152Z"/>
+<path d="M899 288v154h154M227 336h195v131H227ZM458 336h195v131H458ZM688 336h171v131H688Z" fill="#0b1318"/>
+<path d="M227 516h573v69H227Z" fill="#182830"/>
+<circle cx="319" cy="620" r="55" fill="#081014"/><circle cx="883" cy="620" r="55" fill="#081014"/>
+<rect x="533" y="512" width="175" height="89" rx="12" fill="#10191f" stroke="#ef3340"/>
+<path d="M568 552h105M621 526v53" fill="none" stroke="#67d9ee"/>
+</g><path d="M229 282v-83h143v67M511 282v-98h175v98M786 282v-75h82" fill="none" stroke="#67d9ee" stroke-width="7"/>
+<path d="M686 512c26-74 72-75 110-22" fill="none" stroke="#ef3340" stroke-width="8"/>
+<text x="82" y="825" fill="#f0f4f5" font-family="Arial,sans-serif" font-size="21" font-weight="800" letter-spacing="5">ILLUSTRATIVE SERVICE ART</text>
+<text x="82" y="861" fill="#91a1a8" font-family="Arial,sans-serif" font-size="16" font-weight="600" letter-spacing="3">MOBILE DIAGNOSTICS &amp; REPAIR · UTAH</text>
+</svg>
