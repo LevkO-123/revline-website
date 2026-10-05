@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="REVLINE work photo placeholder">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#16212a"/><stop offset=".55" stop-color="#0b1015"/><stop offset="1" stop-color="#251116"/></linearGradient>
+  <radialGradient id="red"><stop stop-color="#e52f3d" stop-opacity=".27"/><stop offset="1" stop-color="#e52f3d" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#d7e2e7" stroke-opacity=".075"/></pattern>
+  <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#67d9ee" stop-opacity=".2"/><stop offset=".5" stop-color="#e6f0f3" stop-opacity=".85"/><stop offset="1" stop-color="#ef3340" stop-opacity=".65"/></linearGradient>
+</defs>
+<rect width="1200" height="900" fill="url(#bg)"/><rect width="1200" height="900" fill="url(#grid)"/><ellipse cx="860" cy="280" rx="420" ry="340" fill="url(#red)"/>
+<path d="M60 702h1080M120 742h960" stroke="#dce6ea" stroke-opacity=".13"/>
+<g fill="none" stroke="url(#line)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m179 611 36-119q14-46 61-61l140-43 107-117q23-25 61-25h222q41 0 65 32l86 116 118 38q40 13 48 52l20 100v33H179Z"/>
+  <path d="m450 388 100-105q17-18 45-18h214q23 0 39 22l70 101M575 278v110m157-110v110"/>
+  <path d="M250 502h798M376 618h507" stroke-opacity=".55"/>
+  <circle cx="360" cy="618" r="76"/><circle cx="360" cy="618" r="29"/><circle cx="894" cy="618" r="76"/><circle cx="894" cy="618" r="29"/>
+</g>
+<path d="M178 696h864" stroke="#ef3340" stroke-width="5" stroke-opacity=".75"/>
+<text x="600" y="795" fill="#f3f6f7" font-family="Arial, sans-serif" font-size="42" font-weight="800" letter-spacing="9" text-anchor="middle">REVLINE · FIELD WORK</text>
+<text x="600" y="842" fill="#aebbc1" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="5" text-anchor="middle">PHOTO PLACEHOLDER</text>
+</svg>
