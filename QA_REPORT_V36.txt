@@ -1,0 +1,19 @@
+REVLINE V36 QA
+================
+Build source: revline-website-main(4).zip
+Critical fixes:
+- Fixed malformed inline JS closure: }\)\(\); -> })();
+- Force-revealed content so a JS error cannot leave all sections invisible.
+- Main content/footer placed above fixed background layer.
+- Local media restored into root/media.
+- Embedded image/video data extracted into local files and wired to the page.
+- High-resolution vector-derived background added as 4K and 8K WebP plus SVG source.
+- Background is fixed full-site and no external image dependency.
+- Form AJAX has native FormSubmit fallback so a CORS/API failure cannot silently drop the lead.
+Checks:
+- HTML file exists in project root.
+- media directory exists in project root.
+- 0 missing referenced local media paths.
+- 0 duplicate HTML IDs.
+- Node syntax check passes for all JS files and extracted inline JS.
+- Local HTTP smoke test performed after packaging.

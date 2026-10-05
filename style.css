@@ -229,3 +229,8 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#7
   .section-head h2,.feature-copy h2,.upgrade-copy h2,.area-copy h2,.facts h2,.faq h2{font-size:3.9rem}
   .service-grid{grid-template-columns:1fr}.service-card{min-height:270px}.feature-media,.feature-media img{min-height:420px;height:420px}.upgrade-media{min-height:420px}.upgrade-media>img{height:420px;width:88%}.video-block{grid-template-columns:1fr;padding:16px}.video-block video{height:300px}.review-card{grid-template-columns:1fr}.review-actions{align-items:stretch}.review-actions .btn{width:100%}.form-grid.two,.form-grid.three{grid-template-columns:1fr}.request-card{padding:18px}.upload{grid-template-columns:1fr}.facts-grid{gap:40px}.fact-list div{grid-template-columns:1fr;gap:7px}.footer-grid{grid-template-columns:1fr 1fr;gap:28px}.footer-main{grid-column:1/-1}.footer-bottom{flex-direction:column;gap:8px}.big-phone{font-size:3.5rem}.hours>div{flex-direction:column;gap:5px}.faq-list summary{font-size:1.3rem}
 }
+
+/* V36 safe background/content overrides for non-inline consumers */
+#site-bg{background-image:url('media/site-bg-reference-8k.webp')!important;background-size:cover;background-position:center;background-repeat:no-repeat;z-index:0}
+main,#main,footer{position:relative;z-index:2}
+.reveal{opacity:1!important;transform:none!important}
