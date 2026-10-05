@@ -1,0 +1,1 @@
+REVLINE V35 bulletproof static build. index.html is self-contained for critical images/background/video; media folder is also included. Upload the contents of this folder to the repository root and deploy as a static site on Vercel.
