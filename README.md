@@ -4,7 +4,7 @@ This is a static website served directly from the repository root. It keeps the 
 
 ## Vercel
 
-Import this repository with the project root set to the repository root. Use the Other framework preset and leave build, install, and output directory commands empty. Vercel serves index.html, the linked CSS and JavaScript, and the local media directly. The included vercel.json supplies security headers.
+Import this repository with the project root set to the repository root. Use the Other framework preset and leave build, install, and output directory commands empty. Vercel serves index.html, the linked CSS and JavaScript, plus the local SVG logo/background. Stock photos load from the Pexels image CDN; vercel.json allows that image host and supplies security headers.
 
 ## Contact form
 
@@ -13,3 +13,8 @@ The request form posts directly to FormSubmit at revlineutah@gmail.com, then ret
 ## Media
 
 All media required to render the site is included as local SVG artwork. The illustrations are not photos of completed REVLINE jobs. See MEDIA_UPLOADS.md for the asset inventory and future photo replacement notes.
+
+
+## Photography
+
+The site uses Pexels stock photos as illustrative service imagery. They are not photos of REVLINE jobs. Photo credits and the license link are in [MEDIA_UPLOADS.md](MEDIA_UPLOADS.md). Replace them with REVLINE's own job photos whenever available.

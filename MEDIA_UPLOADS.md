@@ -1,22 +1,17 @@
-# Included media artwork
+# Photography and media
 
-No manual media upload is required for the site to render or deploy. Every image slot now uses a locally hosted SVG illustration in the media directory, and the site background is also local.
+No manual photo upload is required for the site to render or deploy. The site uses real stock photographs from Pexels, served by the Pexels image CDN, plus the local SVG background and REVLINE logo.
 
-The illustrations are original vector artwork. They are not photographs of completed customer jobs. The “Our Work” section labels them as illustrative examples of service categories.
+These are stock photos, not photographs of REVLINE technicians, vehicles, or completed customer jobs. Page copy identifies them as illustrative service photography. The photos are available for commercial use under the [Pexels License](https://www.pexels.com/license/); attribution is not required, but credits are included here.
 
-Included assets:
-- media/site-background.svg
-- media/hero-service-truck.svg
-- media/diagnostics.svg
-- media/programming.svg
-- media/electrical-repair.svg
-- media/vehicle-upgrades.svg
-- media/european-repair.svg
-- media/rv-electrical.svg
-- media/utv-service.svg
-- media/rv-batteries.svg
-- media/utv-drivetrain.svg
-- media/turbo-repair.svg
-- media/mobile-service.svg
+## Photo credits
 
-The old missing photo and video files are no longer referenced, so there are no binaries the owner must upload. Real REVLINE photos or MP4 footage can replace the illustrations later if desired.
+- Hero diagnostics photo — Artem Podrez, [Pexels photo 8985448](https://www.pexels.com/photo/man-industry-car-vehicle-8985448/)
+- Diagnostic scanner — Jose Ricardo Barraza Morachis, [Pexels photo 4116193](https://www.pexels.com/photo/person-holding-blue-diagnostic-tool-4116193/)
+- In-car laptop diagnostics — Fatih Erden, [Pexels photo 10490631](https://www.pexels.com/photo/person-using-a-laptop-while-sitting-on-a-driver-s-seat-10490631/)
+- Engine repair — Gustavo Fring, [Pexels photo 6870313](https://www.pexels.com/photo/mechanic-checking-the-engine-of-a-car-6870313/)
+- Battery components — JS Leng, [Pexels photo 4374843](https://www.pexels.com/photo/close-up-photo-of-car-s-battery-4374843/)
+- Off-road vehicle repair — Jonathan Reynaga, [Pexels photo 17429096](https://www.pexels.com/photo/man-fixing-a-car-17429096/)
+- Roadside jump-start — Daniel, [Pexels photo 5572275](https://www.pexels.com/photo/shot-of-a-man-fixing-a-car-5572275/)
+
+If you want the page to show REVLINE's actual jobs instead, upload your own photos later and we can replace these stock images.
