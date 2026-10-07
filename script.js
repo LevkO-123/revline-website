@@ -33,7 +33,7 @@ if(fileInput&&form){
 }
 const requestedService=new URLSearchParams(window.location.search).get('service');
 const serviceSelect=$('service');
-const serviceAliases={'diagnostics':'Mobile Diagnostics','mobile car diagnostics':'Mobile Diagnostics','electrical diagnostics':'Electrical Diagnostics','brake service':'Brake Repair','starter & alternator service':'Starter & Alternator Replacement','vehicle programming & coding':'Programming & Coding'};
+const serviceAliases={'diagnostics':'Mobile Diagnostics','mobile car diagnostics':'Mobile Diagnostics','electrical diagnostics':'Electrical Diagnostics','brake service':'Brake Repair','mobile brake repair':'Brake Repair','starter & alternator service':'Starter & Alternator Replacement','mobile battery replacement':'Battery Replacement','mobile oil change':'Oil Change','vehicle programming & coding':'Programming & Coding'};
 if(serviceSelect&&requestedService){
   const normalizedService=serviceAliases[requestedService.trim().toLowerCase()]||requestedService;
   const option=Array.from(serviceSelect.options).find(item=>item.textContent.trim().toLowerCase()===normalizedService.trim().toLowerCase());
