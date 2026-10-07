@@ -246,3 +246,8 @@ main,footer{position:relative;z-index:4}
   footer{padding-bottom:110px}
 }
 @media(prefers-reduced-motion:reduce){.motion-ready .reveal:not(.in){opacity:1;transform:none;transition:none}.hero:after{animation:none}.btn,.problem-card,.city-link,.social{transition:none}}
+
+@media(max-width:760px){
+  .hero .quick-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+  .hero .quick-actions .btn{width:100%;min-width:0;min-height:46px;padding:0 6px;font-size:.58rem;letter-spacing:.035em;white-space:nowrap}
+}
