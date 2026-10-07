@@ -1,6 +1,23 @@
 
 (function(){
 'use strict';
+
+function trackConversion(eventName,detail={}){const payload={event:eventName,...detail};window.dispatchEvent(new CustomEvent('revline:conversion',{detail:payload}));if(Array.isArray(window.dataLayer))window.dataLayer.push(payload);}
+window.revlineTrack=trackConversion;
+
+window.revlineStartCheckout=async function(priceId){
+  if(typeof priceId!=="string"||!/^price_[A-Za-z0-9]+$/.test(priceId))throw new Error("A valid REVLINE-approved Stripe Price ID is required.");
+  const response=await fetch("/api/create-checkout-session",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({priceId})});
+  const result=await response.json();
+  if(!response.ok||!result.url)throw new Error("Online checkout is not currently available.");
+  trackConversion("payment_initiated",{provider:"stripe"});
+  window.location.assign(result.url);
+};
+
+document.addEventListener('click',event=>{const target=event.target instanceof Element?event.target:null;const link=target?.closest('a[href]');if(!link)return;const href=link.getAttribute('href')||'';if(href.startsWith('tel:'))trackConversion('phone_click',{destination:href});else if(href.startsWith('sms:'))trackConversion('sms_click',{destination:href});else if(href.includes('#request')||link.dataset.conversion==='quote')trackConversion('quote_request_click',{destination:href});});
+const contactDock=document.createElement('nav');contactDock.className='contact-dock';contactDock.setAttribute('aria-label','Quick contact actions');contactDock.innerHTML='<a href="tel:+12243458151" data-conversion="phone"><span aria-hidden="true">☎</span><small>Call</small></a><a href="sms:+12243458151" data-conversion="sms"><span aria-hidden="true">✉</span><small>Text</small></a><a href="/#request" class="dock-quote" data-conversion="quote"><span aria-hidden="true">↗</span><small>Get quote</small></a>';document.body.appendChild(contactDock);
+const fab=document.querySelector('.fab');if(fab){fab.setAttribute('aria-label','Quick contact actions');if(!fab.querySelector('[data-fab-quote]')){const quote=document.createElement('a');quote.href='/#request';quote.setAttribute('aria-label','Get a quote');quote.dataset.fabQuote='true';quote.dataset.conversion='quote';quote.innerHTML='<span aria-hidden="true">↗</span><span class="fab-label">Get quote</span>';fab.appendChild(quote);}fab.querySelectorAll('a').forEach(link=>{if(link.querySelector('.fab-label'))return;const label=document.createElement('span');label.className='fab-label';label.textContent=link.href.startsWith('tel:')?'Call':'Text';link.appendChild(label);});}
+
 const makes={
 Acura:['ILX','Integra','MDX','RDX','TLX'],Audi:['A3','A4','A5','A6','A7','A8','Q3','Q5','Q7','Q8','e-tron','RS3','RS5','RS6','RS7'],BMW:['2 Series','3 Series','4 Series','5 Series','7 Series','8 Series','X1','X2','X3','X4','X5','X6','X7','M2','M3','M4','M5','M8','i4','i5','i7','iX'],Buick:['Enclave','Encore','Envision'],Cadillac:['CT4','CT5','Escalade','Lyriq','XT4','XT5','XT6'],Chevrolet:['Blazer','Camaro','Colorado','Corvette','Equinox','Silverado','Suburban','Tahoe','Trailblazer','Traverse'],Chrysler:['200','300','Pacifica'],Dodge:['Challenger','Charger','Durango','Hornet'],Ford:['Bronco','Bronco Sport','Edge','Escape','Expedition','Explorer','F-150','F-250 Super Duty','F-350 Super Duty','F-450 Super Duty','Maverick','Mustang','Ranger','Transit'],GMC:['Acadia','Canyon','Sierra 1500','Sierra HD','Terrain','Yukon'],Genesis:['G70','G80','G90','GV70','GV80'],Honda:['Accord','Civic','CR-V','HR-V','Odyssey','Pilot','Passport','Ridgeline'],Hyundai:['Elantra','Ioniq','Kona','Palisade','Santa Cruz','Santa Fe','Sonata','Tucson','Venue'],Infiniti:['Q50','Q60','QX50','QX55','QX60','QX80'],Jaguar:['F-Pace','F-Type','I-Pace','XE','XF'],Jeep:['Cherokee','Compass','Gladiator','Grand Cherokee','Wagoneer','Wrangler'],Kia:['Carnival','Forte','K5','Niro','Seltos','Sorento','Soul','Sportage','Telluride'],Lexus:['ES','GX','IS','LC','LS','LX','NX','RC','RX','TX','UX'],Lincoln:['Aviator','Corsair','Nautilus','Navigator'],Mazda:['CX-30','CX-5','CX-50','CX-90','Mazda3','Mazda6','MX-5 Miata'],'Mercedes-Benz':['A-Class','C-Class','E-Class','S-Class','CLA','CLS','GLA','GLB','GLC','GLE','GLS','G-Class','EQS','EQE','AMG GT'],Mitsubishi:['Eclipse Cross','Outlander','Outlander Sport','Mirage'],Nissan:['Altima','Armada','Frontier','Kicks','Maxima','Murano','Pathfinder','Rogue','Sentra','Titan','Z'],Porsche:['718 Boxster','718 Cayman','911','Cayenne','Macan','Panamera','Taycan'],Ram:['1500','2500','3500','ProMaster'],Rivian:['R1T','R1S'],Subaru:['Ascent','BRZ','Crosstrek','Forester','Impreza','Legacy','Outback','WRX'],Tesla:['Model 3','Model S','Model X','Model Y','Cybertruck'],Toyota:['4Runner','Camry','Corolla','Crown','GR86','Grand Highlander','Highlander','Land Cruiser','Prius','RAV4','Sequoia','Sienna','Tacoma','Tundra'],Volkswagen:['Atlas','Golf','GTI','Jetta','ID.4','Taos','Tiguan','Touareg'],Volvo:['C40','S60','S90','V60','V90','XC40','XC60','XC90'],Polaris:['Ranger','RZR','Sportsman','General','Scrambler'],'Can-Am':['Defender','Maverick','Outlander','Renegade']
 };
@@ -39,6 +56,10 @@ if(serviceSelect&&requestedService){
   const option=Array.from(serviceSelect.options).find(item=>item.textContent.trim().toLowerCase()===normalizedService.trim().toLowerCase());
   if(option)serviceSelect.value=option.value;
 }
+const testimonialForm=$('testimonialForm');
+const testimonialPhoto=$('testimonialPhoto');
+if(testimonialPhoto&&testimonialForm){testimonialPhoto.addEventListener('change',()=>{const file=testimonialPhoto.files?.[0];const invalid=!!file&&(file.size>5*1024*1024||!['image/jpeg','image/png'].includes(file.type));testimonialPhoto.setCustomValidity(invalid?'Choose one JPG or PNG image under 5 MB.':'');});}
+testimonialForm?.addEventListener('submit',()=>{trackConversion('testimonial_submitted',{form:'website_testimonial'});const status=$('testimonialStatus');if(status)status.textContent='Sending testimonial to REVLINE for moderation…';});
 const preferredDate=$('preferredDate');
 if(preferredDate){const localNow=new Date();localNow.setMinutes(localNow.getMinutes()-localNow.getTimezoneOffset());preferredDate.min=localNow.toISOString().slice(0,10)}
 form?.addEventListener('submit',event=>{
@@ -46,9 +67,11 @@ form?.addEventListener('submit',event=>{
   const submit=form.querySelector('button[type="submit"]');
   if(submit){submit.disabled=true;submit.textContent='Sending request…';}
   if(formStatus)formStatus.textContent='Sending your request to REVLINE…';
+  trackConversion('service_request_submitted',{form:'service_request'});
 });
 
 const revealEls=document.querySelectorAll('.reveal');
+document.documentElement.classList.add('motion-ready');
 if('IntersectionObserver' in window){
   const observer=new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
@@ -60,6 +83,13 @@ if('IntersectionObserver' in window){
   revealEls.forEach(el=>el.classList.add('in'));
 }
 
+
+const counters=document.querySelectorAll('[data-count]');
+if(counters.length&&'IntersectionObserver' in window&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const countObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;const node=entry.target;const end=Number(node.dataset.count);if(!Number.isFinite(end)||end<1){countObserver.unobserve(node);return;}const start=performance.now(),duration=650;const tick=now=>{const progress=Math.min((now-start)/duration,1);node.textContent=String(Math.round(end*(1-Math.pow(1-progress,3))));if(progress<1)requestAnimationFrame(tick);};requestAnimationFrame(tick);countObserver.unobserve(node);}),{threshold:.65});
+  counters.forEach(node=>countObserver.observe(node));
+}
+
 document.querySelectorAll('img:not(#lightboxImage)').forEach(img=>{
   img.addEventListener('error',()=>{
     if(img.dataset.fallbackUsed) return;
@@ -67,4 +97,5 @@ document.querySelectorAll('img:not(#lightboxImage)').forEach(img=>{
     img.src='/revline-r.webp';
   },{once:true});
 });
+if(location.pathname==='/thank-you.html')trackConversion('service_request_received',{page:'thank-you'});
 })();

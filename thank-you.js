@@ -1,0 +1,1 @@
+(function(){const detail={event:"service_request_received",page:"thank-you"};window.dispatchEvent(new CustomEvent("revline:conversion",{detail}));if(Array.isArray(window.dataLayer))window.dataLayer.push(detail);})();
