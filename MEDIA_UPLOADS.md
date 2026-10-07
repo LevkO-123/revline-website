@@ -1,8 +1,8 @@
 # REVLINE photos and media
 
-## Photos from REVLINE jobs
+## REVLINE job photos
 
-Eight photos supplied for the site are stored in `/media/` and used in the hero, service cards, and work gallery. They are the customer's real REVLINE photos, not stock images. No manual upload is still needed for the current site.
+Eight supplied REVLINE photos are stored in `/media/` and used on the website. They are the customer's real job photos, not stock photography.
 
 | Original photo | Deployed file | Subject |
 | --- | --- | --- |
@@ -15,14 +15,8 @@ Eight photos supplied for the site are stored in `/media/` and used in the hero,
 | `photo_2026-10-04_23-26-04.jpg` | `media/revline-drivetrain.jpg` | Drivetrain work on a lift |
 | `photo_2026-10-04_23-25-49.jpg` | `media/revline-engine-bay.jpg` | Engine-bay service |
 
-The photo `photo_2026-10-04_23-26-00.jpg` is intentionally not published because its license plate is visible. Send a copy with the plate covered if you want that image added later.
+The supplied photo `photo_2026-10-04_23-26-00.jpg` is not published because its license plate is visible. An AI edit was rejected because it altered details throughout the repair photo; use a manually plate-covered copy if the business wants it added.
 
-## Illustrative stock photos
+## Service illustrations
 
-Stock images are marked as illustrative in the Programming & Coding, RV / Camper Electrical, and UTV / Polaris cards. The work gallery contains REVLINE photos only.
-
-- Programming & Coding — Fatih Erden, [Pexels photo 10490631](https://www.pexels.com/photo/person-using-a-laptop-while-sitting-on-a-driver-s-seat-10490631/)
-- RV / Camper Electrical — JS Leng, [Pexels photo 4374843](https://www.pexels.com/photo/close-up-photo-of-car-s-battery-4374843/)
-- UTV / Polaris — Jonathan Reynaga, [Pexels photo 17429096](https://www.pexels.com/photo/man-fixing-a-car-17429096/)
-
-These images are available for commercial use under the [Pexels License](https://www.pexels.com/license/). Attribution is not required; credits are kept here.
+RV electrical and UTV service cards use local SVG illustrations and are labeled as illustrations. Programming & Coding uses the real REVLINE diagnostic-tool photo. No third-party stock-photo URLs are used by the site.
