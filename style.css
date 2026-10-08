@@ -430,3 +430,8 @@ label,legend{color:#343c45}
   .hero-caption span{font-size:.56rem}
   .hero-caption .btn{min-height:40px;padding:0 11px;font-size:.55rem}
 }
+
+
+/* Keep the large hero headline inside its own column on tablet and desktop. */
+@media(min-width:761px) and (max-width:1050px){.hero h1{font-size:clamp(2.7rem,5.2vw,3.75rem);line-height:.92;letter-spacing:-.065em}}
+@media(min-width:1051px){.hero h1{font-size:clamp(3.25rem,5vw,5rem);line-height:.9;letter-spacing:-.068em}}
