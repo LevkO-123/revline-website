@@ -411,3 +411,22 @@ label,legend{color:#343c45}
   .hero-media{position:relative;inset:auto;width:100%;height:auto;min-height:0;aspect-ratio:4/3;opacity:1;overflow:hidden}
   .hero-media img{position:absolute;inset:0;width:100%;height:100%;min-height:0;aspect-ratio:auto;object-fit:cover;filter:none}
 }
+
+/* Mobile first-screen hierarchy: scene first, then message and contact actions. */
+@media(max-width:760px){
+  .hero{padding-top:100px}
+  .hero-grid{gap:13px}
+  .hero-media{grid-row:1;aspect-ratio:16/8.5}
+  .hero-copy-panel{grid-row:2}
+  .hero h1{font-size:clamp(2.18rem,9.1vw,3.4rem);line-height:.98;letter-spacing:-.06em;margin-top:12px}
+  .hero-copy{font-size:.94rem;line-height:1.56;margin-top:13px}
+  .actions{margin-top:17px}
+  .trust,.proof-strip{margin-top:13px}
+  .hero-image-stamp{left:12px;top:12px}
+  .hero-image-stamp strong{font-size:1rem;line-height:1.08}
+  .hero-image-stamp span{font-size:.55rem}
+  .hero-caption{left:12px;right:12px;bottom:10px;gap:8px}
+  .hero-caption strong{font-size:.8rem}
+  .hero-caption span{font-size:.56rem}
+  .hero-caption .btn{min-height:40px;padding:0 11px;font-size:.55rem}
+}
