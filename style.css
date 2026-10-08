@@ -518,3 +518,6 @@ footer{padding:48px 0 78px}.footer-grid{gap:14px}.footer-card{padding:24px;borde
 
 /* Premium unified icon and review media details */
 .fab svg{width:18px;height:18px;flex:none}.fab a{display:flex;align-items:center;justify-content:center;gap:9px}.honeypot{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}.review-photo{width:54px;height:54px;object-fit:cover;border-radius:50%;background:#edf0f3}.review-vehicle{color:#69737d;font-size:.76rem}.gallery-card img{object-fit:cover}
+
+/* Keep supporting labels readable on the light surface */
+.eyebrow,.kicker{color:#616b76}
