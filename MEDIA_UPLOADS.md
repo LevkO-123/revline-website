@@ -1,32 +1,32 @@
-# REVLINE media upload notes
+# REVLINE media notes
 
-## Existing customer work photos
+## REVLINE service photos
 
-Eight genuine photos supplied by REVLINE are already stored in `/media/` and appear only on the dedicated `/work/` page:
+Eight genuine photos supplied by REVLINE are stored in `/media/`. Four are used on the homepage as the hero/service-card photography; all eight appear in the clearly labeled `/work/` gallery.
 
-| Supplied photo | Published file | Work shown |
+| Supplied photo | Published file | Site use |
 | --- | --- | --- |
-| `photo_2026-10-04_23-26-40.jpg` | `media/revline-suspension.jpg` | Suspension and undercarriage |
-| `photo_2026-10-04_23-26-29.jpg` | `media/revline-component-inspection.jpg` | Component inspection |
-| `photo_2026-10-04_23-26-26.jpg` | `media/revline-engine-exhaust.jpg` | Engine and exhaust |
-| `photo_2026-10-04_23-26-23.jpg` | `media/revline-diagnostics.jpg` | Autel live-data diagnostics |
-| `photo_2026-10-04_23-26-13.jpg` | `media/revline-cooling-system.jpg` | Cooling system |
-| `photo_2026-10-04_23-26-07.jpg` | `media/revline-exhaust-sensor.jpg` | Exhaust sensor inspection |
-| `photo_2026-10-04_23-26-04.jpg` | `media/revline-drivetrain.jpg` | Drivetrain work on a lift |
-| `photo_2026-10-04_23-25-49.jpg` | `media/revline-engine-bay.jpg` | Engine-bay service |
+| `photo_2026-10-04_23-26-40.jpg` | `media/revline-suspension.jpg` | Work gallery |
+| `photo_2026-10-04_23-26-29.jpg` | `media/revline-component-inspection.jpg` | Homepage service card and work gallery |
+| `photo_2026-10-04_23-26-26.jpg` | `media/revline-engine-exhaust.jpg` | Homepage service card and work gallery |
+| `photo_2026-10-04_23-26-23.jpg` | `media/revline-diagnostics.jpg` | Homepage service card and work gallery |
+| `photo_2026-10-04_23-26-13.jpg` | `media/revline-cooling-system.jpg` | Work gallery |
+| `photo_2026-10-04_23-26-07.jpg` | `media/revline-exhaust-sensor.jpg` | Work gallery |
+| `photo_2026-10-04_23-26-04.jpg` | `media/revline-drivetrain.jpg` | Homepage service card and work gallery |
+| `photo_2026-10-04_23-25-49.jpg` | `media/revline-engine-bay.jpg` | Homepage hero and work gallery |
 
-`photo_2026-10-04_23-26-00.jpg` remains excluded because a license plate is visible. Upload a manually masked copy only if REVLINE wants it published.
+`photo_2026-10-04_23-26-00.jpg` remains excluded because a license plate is visible. REVLINE can upload a manually masked copy if it wants that photo published.
 
-## Optional premium hero video
+## Optional welcome video
 
-The homepage contains a video element configured for muted autoplay, looping and inline mobile playback. It does not request a missing file while the video is unavailable; the site-wide 3D technical background and abstract diagnostics scene remain visible.
+The homepage currently uses REVLINE's real engine-bay photo. No approved hero video was supplied, so there is no video element or missing-file request on the page.
 
-If REVLINE supplies or approves a licensed, no-people video, upload the compressed H.264 MP4 to:
+If REVLINE later supplies or approves a licensed, no-people video, upload a compressed H.264 MP4 to:
 
 `media/revline-hero.mp4`
 
-Use a short seamless 6–12 second loop, 720p or 1080p, no audio track, target under 12 MB, and avoid text/logos from other brands. Then set the homepage video element's `data-src` to `/media/revline-hero.mp4`. Keep the abstract fallback; verify the video on mobile and with reduced-motion enabled. The video is owner-supplied and is not included in this change.
+Use a seamless 6–12 second loop, 720p or 1080p, no audio track, and target under 12 MB. A future code change should connect it as an optional muted, inline, looping background with the existing photo retained as the fallback. Verify mobile playback and reduced-motion behavior before enabling it.
 
-## No vehicle render art
+## Image direction
 
-The site no longer uses generic AI vehicle renders or cartoon/vehicle illustrations in the hero or service cards. Customer photos stay on the work gallery as proof, not decorative fillers.
+The site uses the supplied customer photos as genuine service evidence and no longer uses generic AI vehicle renders or cartoon vehicle illustrations. The field gallery labels those photos as REVLINE work; marketing photography should be added only when REVLINE has approved, locally available assets.
