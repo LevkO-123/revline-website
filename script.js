@@ -51,7 +51,29 @@ if(model)model.addEventListener('change',updateVehiclePreview);
 if(year)year.addEventListener('change',updateVehiclePreview);
 if(modelManual)modelManual.addEventListener('input',updateVehiclePreview);
 updateVehiclePreview();
-const menuBtn=$('menuBtn'), mobilePanel=$('mobilePanel');if(menuBtn&&mobilePanel){menuBtn.addEventListener('click',()=>{const open=mobilePanel.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open?'true':'false')});mobilePanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobilePanel.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));}
+const serviceMenuItems=[
+  ['/car-diagnostics/','Diagnostics'],['/check-engine-light/','Check engine light'],['/electrical-diagnostics/','Electrical diagnostics'],['/programming-coding/','Programming & coding'],['/brake-repair/','Brake repair'],['/battery-replacement/','Battery replacement'],['/starter-alternator-replacement/','Starter & alternator'],['/oil-change/','Oil change'],['/rv-repair/','RV service'],['/trailer-repair/','Trailer service'],['/request/?service=UTV%20%2F%20Off-Road#request','UTV / off-road'],['/fleet/','Fleet service']
+];
+const companyMenuItems=[
+  ['/work/','Recent work'],['/reviews/','Reviews'],['/pricing/','Starting prices'],['/payments/','Payments'],['/financing/','Financing'],['/faq/','FAQs'],['/#coverage','Service coverage'],['/request/','Contact & request']
+];
+const linkList=items=>items.map(([href,label])=>'<a href="'+href+'">'+label+'</a>').join('');
+const navlinks=document.querySelector('.navlinks');
+if(navlinks&&!navlinks.querySelector('.nav-more')){
+  const explore=document.createElement('details');
+  explore.className='nav-more';
+  explore.innerHTML='<summary>Explore</summary><div class="nav-more-panel"><section><span class="nav-more-label">Services</span>'+linkList(serviceMenuItems)+'</section><section><span class="nav-more-label">REVLINE</span>'+linkList(companyMenuItems)+'</section></div>';
+  navlinks.appendChild(explore);
+  document.addEventListener('pointerdown',event=>{if(!explore.contains(event.target))explore.open=false;});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&explore.open){explore.open=false;explore.querySelector('summary').focus();}});
+}
+const menuBtn=$('menuBtn'), mobilePanel=$('mobilePanel');
+if(mobilePanel&&!mobilePanel.dataset.revlineMenu){
+  mobilePanel.innerHTML='<details class="mobile-menu-group"><summary>Services &amp; diagnostics</summary><div>'+linkList(serviceMenuItems)+'</div></details><details class="mobile-menu-group"><summary>REVLINE</summary><div>'+linkList(companyMenuItems)+'</div></details><div class="mobile-panel-actions"><a href="tel:+12243458151" data-conversion="phone">Call</a><a href="sms:+12243458151" data-conversion="sms">Text</a><a href="/request/" data-conversion="quote">Request</a></div>';
+  mobilePanel.dataset.revlineMenu='true';
+}
+if(menuBtn&&mobilePanel){menuBtn.addEventListener('click',()=>{const open=mobilePanel.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open?'true':'false')});mobilePanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobilePanel.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));}
+if(menuBtn&&mobilePanel){menuBtn.addEventListener('click',()=>{const open=mobilePanel.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open?'true':'false')});mobilePanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobilePanel.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));}
 const lb=$('lightbox'),lbi=$('lightboxImage'),lightboxClose=$('lightboxClose');let lastGalleryFocus=null;
 if(lb&&lbi&&lightboxClose){
  const closeLightbox=()=>{lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.classList.remove('lock');if(lastGalleryFocus)lastGalleryFocus.focus();};
