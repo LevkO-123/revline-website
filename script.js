@@ -45,7 +45,7 @@ function updateVehiclePreview(){
   if(/f-150|f-250|f-350|f-450|silverado|sierra|tacoma|tundra|frontier|titan|ranger|gladiator|ridgeline|r1t|cybertruck|maverick|colorado|canyon|truck|pickup|1500|2500|3500/.test(text))type='pickup';
   else if(/suv|crossover|mdx|rdx|q3|q5|q7|q8|x1|x2|x3|x4|x5|x6|x7|gl[a-cs]|gle|gls|g-class|macan|cayenne|r1s|model x|model y|rav4|cr-v|hr-v|forester|outback|explorer|bronco|wrangler|highlander|tucson|sorento|telluride|pilot|palisade|tiguan|atlas|rogue|pathfinder|durango|4runner|sequoia|xc40|xc60|xc90|equinox|traverse|suburban|tahoe/.test(text))type='suv';
   else if(/coupe|cayman|boxster|911|mustang|camaro|challenger|corvette|brz|mx-5|miata|718|gr86|amg gt|z$|rc$|lc$|tt$/.test(text))type='coupe';
-  vehiclePreviewImage.src='/media/revline-config-'+type+'.png';
+  vehiclePreviewImage.src='/media/revline-config-'+type+'.webp';
   vehiclePreviewImage.alt='Illustrative '+type+' body-style rendering'+(label?' for selected vehicle '+label:'')+'; not the exact vehicle model';
   vehiclePreviewLabel.textContent=label?'Illustrative '+type+' body style · '+label:'Choose a vehicle to preview its body style';
 }

@@ -25,11 +25,11 @@ Service cards use local SVG diagrams, generic vehicle renders and RV / UTV illus
 
 The following transparent PNG vehicle renders are generic body-style illustrations, not exact make/model/trim depictions:
 
-- `media/revline-config-sedan.png` — default configurator and service visual.
-- `media/revline-config-suv.png` — SUV/crossover selection.
-- `media/revline-config-pickup.png` — pickup / truck selection.
-- `media/revline-config-coupe.png` — coupe / sports-car selection.
-- `media/revline-hero-studio.png` — illustrative premium hero scene with a subtle CSS motion treatment.
+- `media/revline-config-sedan.webp` — default configurator and service visual.
+- `media/revline-config-suv.webp` — SUV/crossover selection.
+- `media/revline-config-pickup.webp` — pickup / truck selection.
+- `media/revline-config-coupe.webp` — coupe / sports-car selection.
+- `media/revline-hero-studio.webp` — illustrative premium hero scene with a subtle CSS motion treatment.
 
 The homepage currently uses an animated still image, not a video file. To replace it with real moving footage, REVLINE still needs to supply or approve a licensed, compressed MP4. No video path is requested by the deployed page, so there is no missing-media request.
 
