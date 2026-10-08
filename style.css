@@ -686,3 +686,21 @@ header{z-index:50}
 .payment-methods{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}
 .payment-methods span{display:inline-flex;align-items:center;min-height:34px;padding:0 11px;border:1px solid rgba(29,39,49,.11);border-radius:7px;background:rgba(255,255,255,.76);color:#303941;font-size:.68rem;font-weight:740;letter-spacing:.02em}
 .payment-disclosure{color:#6a747d;font-size:.76rem;line-height:1.55}
+
+/* Keep the mobile first fold visual and contact-ready */
+#site-bg:before{opacity:.31}
+#site-bg:after{border-color:rgba(207,31,49,.18);box-shadow:0 0 0 44px rgba(207,31,49,.032),0 0 0 105px rgba(47,81,105,.03),0 0 0 180px rgba(255,255,255,.28)}
+.hero h1{text-transform:none;font-weight:720;letter-spacing:-.06em}
+.hero h1 em{font-weight:780}
+@media(max-width:960px){
+ .hero-copy-panel{grid-row:2;order:2}
+ .hero-media{grid-row:1;order:1;aspect-ratio:16/10}
+ .hero h1{max-width:100%;font-size:clamp(2.15rem,7vw,2.85rem);line-height:1.02}
+ .hero-copy{max-width:60ch}
+}
+@media(max-width:560px){
+ #site-bg:before{opacity:.27;background-size:76px 76px}
+ #site-bg:after{right:-45vw;top:20vh;width:115vw;height:115vw;opacity:.68}
+ .hero-media{aspect-ratio:1.72/1}
+ .hero h1{font-size:clamp(2.1rem,7.2vw,2.55rem)}
+}
