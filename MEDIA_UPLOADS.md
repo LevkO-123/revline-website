@@ -2,7 +2,7 @@
 
 ## REVLINE job photos
 
-Eight supplied REVLINE photos are stored in `/media/` and used on the website. They are the customer's real job photos, not stock photography.
+Eight supplied REVLINE job photos are kept together in the homepage’s **Recent Work** gallery. They document real REVLINE jobs and are not stock photography.
 
 | Original photo | Deployed file | Subject |
 | --- | --- | --- |
@@ -19,4 +19,18 @@ The supplied photo `photo_2026-10-04_23-26-00.jpg` is not published because its 
 
 ## Service illustrations
 
-RV electrical and UTV service cards use local SVG illustrations and are labeled as illustrations. Programming & Coding uses the real REVLINE diagnostic-tool photo. No third-party stock-photo URLs are used by the site.
+Service cards use local SVG diagrams, generic vehicle renders and RV / UTV illustrations. They are labeled or described as illustrative. The eight customer job photos appear only in the Recent Work gallery so they are clearly evidence of actual REVLINE work. No third-party stock-photo URLs are used by the site.
+
+## New generated vehicle visuals
+
+The following transparent PNG vehicle renders are generic body-style illustrations, not exact make/model/trim depictions:
+
+- `media/revline-config-sedan.png` — default configurator and service visual.
+- `media/revline-config-suv.png` — SUV/crossover selection.
+- `media/revline-config-pickup.png` — pickup / truck selection.
+- `media/revline-config-coupe.png` — coupe / sports-car selection.
+- `media/revline-hero-studio.png` — illustrative premium hero scene with a subtle CSS motion treatment.
+
+The homepage currently uses an animated still image, not a video file. To replace it with real moving footage, REVLINE still needs to supply or approve a licensed, compressed MP4. No video path is requested by the deployed page, so there is no missing-media request.
+
+The generated image files are committed with this change. No additional customer photo upload is needed. The excluded `photo_2026-10-04_23-26-00.jpg` still needs a manually plate-covered copy before publication.

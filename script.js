@@ -33,6 +33,26 @@ if(city&&make&&model&&year&&cityManual&&modelManual){
   function resetModels(){model.innerHTML='<option value="">Select make first</option>';model.disabled=!make.value;modelManual.style.display='none';if(make.value){(makes[make.value]||[]).forEach(m=>{const o=document.createElement('option');o.value=m;o.textContent=m;model.appendChild(o)});const x=document.createElement('option');x.value='Other / Not Listed';x.textContent='Other / Not Listed';model.appendChild(x)}}
   make.addEventListener('change',resetModels);model.addEventListener('change',()=>{const manual=model.value==='Other / Not Listed';modelManual.style.display=manual?'block':'none';modelManual.required=manual});city.addEventListener('change',()=>{const manual=city.value==='Other / Not Listed';cityManual.style.display=manual?'block':'none';cityManual.required=manual});resetModels();
 }
+
+const vehiclePreviewImage=$('vehiclePreviewImage'),vehiclePreviewLabel=$('vehiclePreviewLabel');
+function updateVehiclePreview(){
+  if(!vehiclePreviewImage||!vehiclePreviewLabel)return;
+  const selectedMake=make?.value||'';
+  const selectedModel=(modelManual?.value||model?.value||'').trim();
+  const label=[selectedMake,selectedModel&&selectedModel!=='Other / Not Listed'?selectedModel:''].filter(Boolean).join(' ');
+  const text=(label||selectedMake||'vehicle').toLowerCase();
+  let type='sedan';
+  if(/f-150|f-250|f-350|f-450|silverado|sierra|tacoma|tundra|frontier|titan|ranger|gladiator|ridgeline|r1t|cybertruck|maverick|colorado|canyon|truck|pickup|1500|2500|3500/.test(text))type='pickup';
+  else if(/suv|crossover|mdx|rdx|q3|q5|q7|q8|x1|x2|x3|x4|x5|x6|x7|gl[a-cs]|gle|gls|g-class|macan|cayenne|r1s|model x|model y|rav4|cr-v|hr-v|forester|outback|explorer|bronco|wrangler|highlander|tucson|sorento|telluride|pilot|palisade|tiguan|atlas|rogue|pathfinder|durango|4runner|sequoia|xc40|xc60|xc90|equinox|traverse|suburban|tahoe/.test(text))type='suv';
+  else if(/coupe|cayman|boxster|911|mustang|camaro|challenger|corvette|brz|mx-5|miata|718|gr86|amg gt|z$|rc$|lc$|tt$/.test(text))type='coupe';
+  vehiclePreviewImage.src='/media/revline-config-'+type+'.png';
+  vehiclePreviewImage.alt='Illustrative '+type+' body-style rendering'+(label?' for selected vehicle '+label:'')+'; not the exact vehicle model';
+  vehiclePreviewLabel.textContent=label?'Illustrative '+type+' body style · '+label:'Choose a vehicle to preview its body style';
+}
+if(make)make.addEventListener('change',updateVehiclePreview);
+if(model)model.addEventListener('change',updateVehiclePreview);
+if(modelManual)modelManual.addEventListener('input',updateVehiclePreview);
+updateVehiclePreview();
 const menuBtn=$('menuBtn'), mobilePanel=$('mobilePanel');if(menuBtn&&mobilePanel){menuBtn.addEventListener('click',()=>{const open=mobilePanel.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open?'true':'false')});mobilePanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobilePanel.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));}
 const lb=$('lightbox'),lbi=$('lightboxImage'),lightboxClose=$('lightboxClose');if(lb&&lbi&&lightboxClose){document.querySelectorAll('.gallery-card img').forEach(img=>img.addEventListener('click',()=>{lbi.src=img.src;lbi.alt=img.alt;lb.classList.add('open');document.body.classList.add('lock')}));lightboxClose.addEventListener('click',()=>{lb.classList.remove('open');document.body.classList.remove('lock')});lb.addEventListener('click',e=>{if(e.target===lb){lb.classList.remove('open');document.body.classList.remove('lock')}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){lb.classList.remove('open');document.body.classList.remove('lock')}});}
 
