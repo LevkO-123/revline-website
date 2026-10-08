@@ -15,8 +15,8 @@ window.revlineStartCheckout=async function(priceId){
 };
 
 document.addEventListener('click',event=>{const target=event.target instanceof Element?event.target:null;const link=target?.closest('a[href]');if(!link)return;const href=link.getAttribute('href')||'';if(href.startsWith('tel:'))trackConversion('phone_click',{destination:href});else if(href.startsWith('sms:'))trackConversion('sms_click',{destination:href});else if(href.includes('#request')||link.dataset.conversion==='quote')trackConversion('quote_request_click',{destination:href});});
-const contactDock=document.createElement('nav');contactDock.className='contact-dock';contactDock.setAttribute('aria-label','Quick contact actions');contactDock.innerHTML='<a href="tel:+12243458151" data-conversion="phone"><span aria-hidden="true">☎</span><small>Call</small></a><a href="sms:+12243458151" data-conversion="sms"><span aria-hidden="true">✉</span><small>Text</small></a><a href="/#request" class="dock-quote" data-conversion="quote"><span aria-hidden="true">↗</span><small>Get quote</small></a>';document.body.appendChild(contactDock);
-const fab=document.querySelector('.fab');if(fab){fab.setAttribute('aria-label','Quick contact actions');if(!fab.querySelector('[data-fab-quote]')){const quote=document.createElement('a');quote.href='/#request';quote.setAttribute('aria-label','Get a quote');quote.dataset.fabQuote='true';quote.dataset.conversion='quote';quote.innerHTML='<span aria-hidden="true">↗</span><span class="fab-label">Get quote</span>';fab.appendChild(quote);}fab.querySelectorAll('a').forEach(link=>{if(link.querySelector('.fab-label'))return;const label=document.createElement('span');label.className='fab-label';label.textContent=link.href.startsWith('tel:')?'Call':'Text';link.appendChild(label);});}
+const contactDock=document.createElement('nav');contactDock.className='contact-dock';contactDock.setAttribute('aria-label','Quick contact actions');contactDock.innerHTML='<a href="tel:+12243458151" data-conversion="phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.7 3.5 9.6 3a1.6 1.6 0 0 1 1.8 1.1l1 3a1.6 1.6 0 0 1-.7 1.9l-1.7 1a12 12 0 0 0 5 5l1-1.7a1.6 1.6 0 0 1 1.9-.7l3 1a1.6 1.6 0 0 1 1.1 1.8l-.5 2.9A1.9 1.9 0 0 1 19.6 20C11 19.3 4.7 13 4 4.4a1.9 1.9 0 0 1 1.7-.9Z"/></svg><small>Call</small></a><a href="sms:+12243458151" data-conversion="sms"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v7A2.5 2.5 0 0 1 17.5 15H11l-4.7 4v-4.4A2.5 2.5 0 0 1 4 12.5v-7Z"/></svg><small>Text</small></a><a href="/request/" class="dock-quote" data-conversion="quote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><small>Request</small></a>';document.body.appendChild(contactDock);
+const fab=document.querySelector('.fab');if(fab){fab.setAttribute('aria-label','Quick contact actions');if(!fab.querySelector('[data-fab-quote]')){const quote=document.createElement('a');quote.href='/request/';quote.setAttribute('aria-label','Get a quote');quote.dataset.fabQuote='true';quote.dataset.conversion='quote';quote.innerHTML='<span aria-hidden="true">↗</span><span class="fab-label">Get quote</span>';fab.appendChild(quote);}fab.querySelectorAll('a').forEach(link=>{if(link.querySelector('.fab-label'))return;const label=document.createElement('span');label.className='fab-label';label.textContent=link.href.startsWith('tel:')?'Call':'Text';link.appendChild(label);});}
 
 const makes={
 Acura:['ILX','Integra','MDX','RDX','TLX'],Audi:['A3','A4','A5','A6','A7','A8','Q3','Q5','Q7','Q8','e-tron','RS3','RS5','RS6','RS7'],BMW:['2 Series','3 Series','4 Series','5 Series','7 Series','8 Series','X1','X2','X3','X4','X5','X6','X7','M2','M3','M4','M5','M8','i4','i5','i7','iX'],Buick:['Enclave','Encore','Envision'],Cadillac:['CT4','CT5','Escalade','Lyriq','XT4','XT5','XT6'],Chevrolet:['Blazer','Camaro','Colorado','Corvette','Equinox','Silverado','Suburban','Tahoe','Trailblazer','Traverse'],Chrysler:['200','300','Pacifica'],Dodge:['Challenger','Charger','Durango','Hornet'],Ford:['Bronco','Bronco Sport','Edge','Escape','Expedition','Explorer','F-150','F-250 Super Duty','F-350 Super Duty','F-450 Super Duty','Maverick','Mustang','Ranger','Transit'],GMC:['Acadia','Canyon','Sierra 1500','Sierra HD','Terrain','Yukon'],Genesis:['G70','G80','G90','GV70','GV80'],Honda:['Accord','Civic','CR-V','HR-V','Odyssey','Pilot','Passport','Ridgeline'],Hyundai:['Elantra','Ioniq','Kona','Palisade','Santa Cruz','Santa Fe','Sonata','Tucson','Venue'],Infiniti:['Q50','Q60','QX50','QX55','QX60','QX80'],Jaguar:['F-Pace','F-Type','I-Pace','XE','XF'],Jeep:['Cherokee','Compass','Gladiator','Grand Cherokee','Wagoneer','Wrangler'],Kia:['Carnival','Forte','K5','Niro','Seltos','Sorento','Soul','Sportage','Telluride'],Lexus:['ES','GX','IS','LC','LS','LX','NX','RC','RX','TX','UX'],Lincoln:['Aviator','Corsair','Nautilus','Navigator'],Mazda:['CX-30','CX-5','CX-50','CX-90','Mazda3','Mazda6','MX-5 Miata'],'Mercedes-Benz':['A-Class','C-Class','E-Class','S-Class','CLA','CLS','GLA','GLB','GLC','GLE','GLS','G-Class','EQS','EQE','AMG GT'],Mitsubishi:['Eclipse Cross','Outlander','Outlander Sport','Mirage'],Nissan:['Altima','Armada','Frontier','Kicks','Maxima','Murano','Pathfinder','Rogue','Sentra','Titan','Z'],Porsche:['718 Boxster','718 Cayman','911','Cayenne','Macan','Panamera','Taycan'],Ram:['1500','2500','3500','ProMaster'],Rivian:['R1T','R1S'],Subaru:['Ascent','BRZ','Crosstrek','Forester','Impreza','Legacy','Outback','WRX'],Tesla:['Model 3','Model S','Model X','Model Y','Cybertruck'],Toyota:['4Runner','Camry','Corolla','Crown','GR86','Grand Highlander','Highlander','Land Cruiser','Prius','RAV4','Sequoia','Sienna','Tacoma','Tundra'],Volkswagen:['Atlas','Golf','GTI','Jetta','ID.4','Taos','Tiguan','Touareg'],Volvo:['C40','S60','S90','V60','V90','XC40','XC60','XC90'],Polaris:['Ranger','RZR','Sportsman','General','Scrambler'],'Can-Am':['Defender','Maverick','Outlander','Renegade']
@@ -34,28 +34,43 @@ if(city&&make&&model&&year&&cityManual&&modelManual){
   make.addEventListener('change',resetModels);model.addEventListener('change',()=>{const manual=model.value==='Other / Not Listed';modelManual.style.display=manual?'block':'none';modelManual.required=manual});city.addEventListener('change',()=>{const manual=city.value==='Other / Not Listed';cityManual.style.display=manual?'block':'none';cityManual.required=manual});resetModels();
 }
 
-const vehiclePreviewImage=$('vehiclePreviewImage'),vehiclePreviewLabel=$('vehiclePreviewLabel');
+const vehiclePreview=$('vehiclePreview'),vehiclePreviewLabel=$('vehiclePreviewLabel');
 function updateVehiclePreview(){
-  if(!vehiclePreviewImage||!vehiclePreviewLabel)return;
-  const selectedMake=make?.value||'';
-  const selectedModel=(modelManual?.value||model?.value||'').trim();
-  const label=[selectedMake,selectedModel&&selectedModel!=='Other / Not Listed'?selectedModel:''].filter(Boolean).join(' ');
-  const text=(label||selectedMake||'vehicle').toLowerCase();
-  let type='sedan';
-  if(/f-150|f-250|f-350|f-450|silverado|sierra|tacoma|tundra|frontier|titan|ranger|gladiator|ridgeline|r1t|cybertruck|maverick|colorado|canyon|truck|pickup|1500|2500|3500/.test(text))type='pickup';
-  else if(/suv|crossover|mdx|rdx|q3|q5|q7|q8|x1|x2|x3|x4|x5|x6|x7|gl[a-cs]|gle|gls|g-class|macan|cayenne|r1s|model x|model y|rav4|cr-v|hr-v|forester|outback|explorer|bronco|wrangler|highlander|tucson|sorento|telluride|pilot|palisade|tiguan|atlas|rogue|pathfinder|durango|4runner|sequoia|xc40|xc60|xc90|equinox|traverse|suburban|tahoe/.test(text))type='suv';
-  else if(/coupe|cayman|boxster|911|mustang|camaro|challenger|corvette|brz|mx-5|miata|718|gr86|amg gt|z$|rc$|lc$|tt$/.test(text))type='coupe';
-  vehiclePreviewImage.src='/media/revline-config-'+type+'.webp';
-  vehiclePreviewImage.alt='Illustrative '+type+' body-style rendering'+(label?' for selected vehicle '+label:'')+'; not the exact vehicle model';
-  vehiclePreviewLabel.textContent=label?'Illustrative '+type+' body style · '+label:'Choose a vehicle to preview its body style';
+ if(!vehiclePreview||!vehiclePreviewLabel)return;
+ const selectedMake=make?.value||'';
+ const selectedModel=(modelManual?.value||model?.value||'').trim();
+ const selectedYear=year?.value||'';
+ const chosenModel=selectedModel&&selectedModel!=='Other / Not Listed'?selectedModel:'';
+ const label=[selectedYear,selectedMake,chosenModel].filter(Boolean).join(' ');
+ vehiclePreviewLabel.textContent=label||'Choose a vehicle make and model';
+ const vehicleDetails=vehiclePreview.querySelector('[data-vehicle-detail]');
+ if(vehicleDetails)vehicleDetails.textContent=label?'Vehicle details saved with this request.':'Used to review mobile service fit.';
 }
 if(make)make.addEventListener('change',updateVehiclePreview);
 if(model)model.addEventListener('change',updateVehiclePreview);
+if(year)year.addEventListener('change',updateVehiclePreview);
 if(modelManual)modelManual.addEventListener('input',updateVehiclePreview);
 updateVehiclePreview();
 const menuBtn=$('menuBtn'), mobilePanel=$('mobilePanel');if(menuBtn&&mobilePanel){menuBtn.addEventListener('click',()=>{const open=mobilePanel.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open?'true':'false')});mobilePanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobilePanel.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));}
-const lb=$('lightbox'),lbi=$('lightboxImage'),lightboxClose=$('lightboxClose');if(lb&&lbi&&lightboxClose){document.querySelectorAll('.gallery-card img').forEach(img=>img.addEventListener('click',()=>{lbi.src=img.src;lbi.alt=img.alt;lb.classList.add('open');document.body.classList.add('lock')}));lightboxClose.addEventListener('click',()=>{lb.classList.remove('open');document.body.classList.remove('lock')});lb.addEventListener('click',e=>{if(e.target===lb){lb.classList.remove('open');document.body.classList.remove('lock')}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){lb.classList.remove('open');document.body.classList.remove('lock')}});}
-
+const lb=$('lightbox'),lbi=$('lightboxImage'),lightboxClose=$('lightboxClose');let lastGalleryFocus=null;
+if(lb&&lbi&&lightboxClose){
+ const closeLightbox=()=>{lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.classList.remove('lock');if(lastGalleryFocus)lastGalleryFocus.focus();};
+ document.querySelectorAll('.gallery-card').forEach(card=>card.addEventListener('click',()=>{const img=card.querySelector('img');if(!img)return;lastGalleryFocus=card;lbi.src=img.src;lbi.alt=img.alt;lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.classList.add('lock');lightboxClose.focus();}));
+ lightboxClose.addEventListener('click',closeLightbox);
+ lb.addEventListener('click',e=>{if(e.target===lb)closeLightbox();});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open'))closeLightbox();});
+}
+const heroVideo=document.querySelector('[data-hero-video]');
+if(heroVideo){
+ const source=(heroVideo.dataset.src||'').trim();
+ const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if(source&&/^\/media\/[A-Za-z0-9._-]+\.mp4$/.test(source)&&!reduceMotion){
+  const heroMedia=heroVideo.closest('.hero-media');
+  heroVideo.addEventListener('playing',()=>heroMedia?.classList.add('video-ready'),{once:true});
+  heroVideo.src=source;heroVideo.load();
+  heroVideo.play().catch(()=>{});
+ }
+}
 const form=$('serviceForm');
 const formStatus=$('formStatus');
 const fileInput=$('attachments');
@@ -76,10 +91,6 @@ if(serviceSelect&&requestedService){
   const option=Array.from(serviceSelect.options).find(item=>item.textContent.trim().toLowerCase()===normalizedService.trim().toLowerCase());
   if(option)serviceSelect.value=option.value;
 }
-const testimonialForm=$('testimonialForm');
-const testimonialPhoto=$('testimonialPhoto');
-if(testimonialPhoto&&testimonialForm){testimonialPhoto.addEventListener('change',()=>{const file=testimonialPhoto.files?.[0];const invalid=!!file&&(file.size>5*1024*1024||!['image/jpeg','image/png'].includes(file.type));testimonialPhoto.setCustomValidity(invalid?'Choose one JPG or PNG image under 5 MB.':'');});}
-testimonialForm?.addEventListener('submit',()=>{trackConversion('testimonial_submitted',{form:'website_testimonial'});const status=$('testimonialStatus');if(status)status.textContent='Sending testimonial to REVLINE for moderation…';});
 const preferredDate=$('preferredDate');
 if(preferredDate){const localNow=new Date();localNow.setMinutes(localNow.getMinutes()-localNow.getTimezoneOffset());preferredDate.min=localNow.toISOString().slice(0,10)}
 form?.addEventListener('submit',event=>{

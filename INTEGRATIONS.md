@@ -1,45 +1,47 @@
 # REVLINE website integration setup
 
-Account-dependent services below are not live until the business owner supplies the listed access and configuration. The static pages keep their fallbacks when an integration is unavailable. `INTEGRATIONS.env.example` lists empty variable names and safe URL examples; configure actual values in Vercel, not in the repository.
+Account-dependent services stay inactive until the owner completes the access and configuration below. Put credentials in Vercel Project Settings, never in source files. Preview must be tested before activating Production.
 
-## Google review feed
-To display reviewer name, rating, text, profile photo and date from Google automatically:
-1. Confirm the verified REVLINE Business Profile and grant the authorized account access.
-2. Create a Google Cloud project and enable the Business Profile APIs available for that account.
-3. Configure a Vercel server-side endpoint with OAuth credentials and a cache.
-4. Store `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN`, and `GBP_LOCATION_ID` as Vercel environment variables; keep all except any published OAuth client ID server-side.
-5. Confirm the displayed fields and refresh schedule. Keep the official Google profile link as fallback.
+## Google Business Profile reviews
 
-No reviews or review count are fabricated in the current pages. Until API access is authorized and connected, the Reviews page links to the official Google profile and accepts separate website testimonials for manual review.
+The site imports real reviews from Google's Business Profile API through a server-side Vercel route. It does not invent ratings, text or counts. The Reviews page shows a clear Google Reviews label and links to the official profile while API access is not configured.
 
-## Website testimonial form
-The Reviews page submits name, email, rating, review text and an optional JPG/PNG image to the existing FormSubmit recipient `revlineutah@gmail.com`. Submissions are for owner moderation and are not published automatically or converted into Google reviews. Complete FormSubmit's first-use email confirmation before relying on the flow.
+Required owner setup:
 
-## Stripe Checkout, Apple Pay and Google Pay
-The branch now contains server-side Vercel API routes for creating a Checkout Session from an owner-approved Stripe Price ID, checking paid session status, and validating Stripe webhook signatures. Checkout returns a safe configuration error until the Stripe environment is configured. The public website does not expose card fields or an active Pay button.
+1. Confirm the REVLINE Business Profile is verified and the Google account has manager/owner access.
+2. Create or select a Google Cloud project, request/enable Business Profile API access for that account, and configure OAuth consent.
+3. Authorize the `business.manage` OAuth scope for the profile owner; obtain a refresh token using the approved account.
+4. Add `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN`, `GBP_ACCOUNT_ID`, and `GBP_LOCATION_ID` in Vercel. Keep credentials server-side.
+5. Confirm actual profile data and refresh behavior in Preview.
 
-Add these Vercel environment variables in Preview first, then Production only after approval:
-- `STRIPE_SECRET_KEY` — server-only Stripe key.
-- `STRIPE_WEBHOOK_SECRET` — server-only webhook signing secret.
-- `STRIPE_PRICE_IDS` — comma-separated allowlist of Stripe Price IDs REVLINE has approved.
-- `STRIPE_SUCCESS_URL` — fixed absolute URL for the paid-order confirmation page.
-- `STRIPE_CANCEL_URL` — fixed absolute URL back to the website.
-- `PUBLIC_SITE_URL` — exact trusted origin used by server routes.
+The endpoint uses the official Reviews API and a short server response cache. Google's API access/eligibility is account-controlled; the website cannot grant that access itself. Review data is not stored in Supabase. Google's API policies govern refresh and retention of cached content; verify current terms before changing cache behavior.
 
-Create a Stripe webhook pointed to `/api/stripe-webhook` and subscribe to `checkout.session.completed`. The route verifies the signature and returns an acknowledgement; order handling/receipts must be tested for REVLINE's chosen service/payment flow before taking payment. Register the production domain for Apple Pay / Google Pay in Stripe and confirm merchant eligibility. Do not place secret keys in browser code or expose them with a public prefix.
+Official docs: [Reviews API](https://developers.google.com/my-business/reference/rest/v4/accounts.locations.reviews/list), [OAuth](https://developers.google.com/my-business/content/implement-oauth), [Business Profile API policies](https://developers.google.com/my-business/content/policies).
+
+## REVLINE website reviews and moderation
+
+Run `supabase/reviews.sql` in the REVLINE Supabase project, then set `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` in Vercel. The service-role key stays server-side. The review-photo bucket is private; uploaded review photos are served only for approved reviews.
+
+Workflow is enforced as submission → pending → owner approval → published. A new submission is always pending and never shown publicly until an owner changes its status to approved. Owner moderation occurs in the Supabase dashboard. Configure Vercel Firewall/Bot Protection or an equivalent request rate limit before broad promotion; the honeypot and same-origin checks are basic spam controls, not a complete rate-limit system. Until credentials are present, the form explicitly reports that the review service is unavailable rather than pretending a review was saved.
+
+## Stripe payments, cards and wallets
+
+The payment page explains card and supported wallet payments. The browser may receive only `STRIPE_PUBLISHABLE_KEY` (a `pk_` value) through the payment-config route. `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, and approved Price IDs remain server-only. Existing Checkout routes accept only owner-approved Price IDs and remain unavailable until fully configured.
+
+Before enabling Checkout, configure Preview values, approved service/price IDs, fixed success/cancel URLs, webhook verification, and the Stripe account's Apple Pay/Google Pay domain and merchant eligibility. Complete a test-mode transaction and verify the webhook/session status before enabling any live payment flow. Never place secret keys in HTML, JavaScript, or public-prefixed environment variables.
 
 ## Affirm and Klarna
-These options are not currently active. Confirm merchant eligibility, category approval, settlement/dispute terms, customer disclosures and service eligibility with Stripe/provider before publishing buttons. Any future availability depends on provider approval and final terms.
 
-## Appointment calendar and customer follow-up
-The website form sends an appointment request and preferred time; it does not reserve a calendar slot. To automate confirmed bookings, REVLINE must choose a scheduling/CRM provider, connect its business calendar, specify service durations and drive/coverage rules, and set cancellation/reminder behavior. Prevent double bookings and test notifications before replacing the request flow.
+Financing is shown as not active. REVLINE must receive provider/merchant approval, confirm supported service categories and payment terms, and complete any Stripe/provider setup before representing either option as available.
 
-## Analytics and conversion events
-The front end emits browser event `revline:conversion` and pushes events to `window.dataLayer` only when an analytics container initializes it. Names include `phone_click`, `sms_click`, `quote_request_click`, `service_request_submitted`, `service_request_received`, `testimonial_submitted`, `payment_initiated`, and `payment_completed`. Payment completion must only be emitted after the server verifies that Stripe reports the session as paid.
+## Hero video
 
-To connect GA4 or Google Tag Manager, provide the approved measurement/container ID and any consent requirements. No analytics ID is embedded.
+See [MEDIA_UPLOADS.md](MEDIA_UPLOADS.md) for the exact MP4 path and video element change. No video is included because a licensed, approved asset has not been supplied.
 
-## Business details to verify before launch
-- Confirm the current phone number, starting prices, hours, supported services, coverage, listed makes and FormSubmit first-use confirmation.
-- The page keeps the verified existing 224-area-code phone number; replace it only after REVLINE provisions a new number and updates the website, schema, Google listing and business citations together.
-- No technician name, certifications, years of experience, insurance, warranty or guarantees are claimed without verified details.
+## Appointment requests and follow-up
+
+The request form is a request, not a confirmed booking. FormSubmit's first-use confirmation must be completed. Automated scheduling requires the owner's selected CRM/calendar, service durations, travel rules, cancellation rules and notifications. Do not show a time as booked until availability is confirmed.
+
+## Analytics
+
+Conversion events are emitted to the browser event bus and to `dataLayer` only if an approved container initializes it. Add the approved analytics ID and any required consent management before enabling tracking.
