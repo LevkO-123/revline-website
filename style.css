@@ -261,4 +261,4 @@ main,footer{position:relative;z-index:4}
   .hero-caption,.hero-image-stamp{display:none}
 }
 
-@media(max-width:760px){.seo-hero>p{font-size:.96rem;line-height:1.58}.seo-hero .actions .btn:not(.primary){display:none}.seo-hero .actions .btn.primary{width:100%}}
+@media(max-width:760px){.seo-hero{padding:20px}.seo-hero .eyebrow{font-size:.57rem;letter-spacing:.1em}.seo-hero>p{font-size:.92rem;line-height:1.48}.seo-hero .actions{margin-top:16px}.seo-hero .actions .btn:not(.primary){display:none}.seo-hero .actions .btn.primary{width:100%}.seo-hero .price-disclaimer{margin-top:12px;font-size:.7rem;line-height:1.42}}
