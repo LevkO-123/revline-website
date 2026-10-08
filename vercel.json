@@ -22,7 +22,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; img-src 'self' https://images.pexels.com data: blob:; media-src 'self' blob:; style-src 'self'; script-src 'self'; form-action 'self' https://formsubmit.co; frame-src https://www.google.com https://maps.google.com; base-uri 'self'; frame-ancestors 'self'"
+          "value": "default-src 'self'; img-src 'self' data: blob: https://*.googleusercontent.com; media-src 'self' blob:; style-src 'self'; script-src 'self'; form-action 'self' https://formsubmit.co; frame-src https://www.google.com https://maps.google.com; base-uri 'self'; frame-ancestors 'self'"
         }
       ]
     }
