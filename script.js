@@ -73,7 +73,6 @@ if(mobilePanel&&!mobilePanel.dataset.revlineMenu){
   mobilePanel.dataset.revlineMenu='true';
 }
 if(menuBtn&&mobilePanel){menuBtn.addEventListener('click',()=>{const open=mobilePanel.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open?'true':'false')});mobilePanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobilePanel.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));}
-if(menuBtn&&mobilePanel){menuBtn.addEventListener('click',()=>{const open=mobilePanel.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open?'true':'false')});mobilePanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobilePanel.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));}
 const galleryFilters=document.querySelectorAll('.gallery-filter[data-filter]'),galleryCards=[...document.querySelectorAll('.gallery-card[data-categories]')];
 if(galleryFilters.length&&galleryCards.length){
  const filterStatus=document.createElement('p');filterStatus.className='gallery-filter-status';filterStatus.setAttribute('role','status');filterStatus.setAttribute('aria-live','polite');document.querySelector('.gallery-toolbar')?.appendChild(filterStatus);
